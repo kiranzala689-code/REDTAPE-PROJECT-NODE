@@ -1,0 +1,233 @@
+.banner {
+  height: 250px;
+  display: flex;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  justify-content: center;
+  align-items: center;
+  background: #141414;
+}
+
+.banner h1 {
+  color: #fff;
+  font-size: 90px;
+  font-weight: 700;
+  margin: 0;
+}
+
+@media (max-width: 576px) {
+  .banner h1 {
+    font-size: 30px;
+  }
+}
+.trending-shoes-section {
+    background: #fff;
+    padding: 55px 0 65px;
+}
+
+.trending-shoes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 25px;
+}
+
+.trending-shoes-header h2 {
+    margin: 0 0 5px;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: .5px;
+}
+
+.trending-shoes-header p {
+    margin: 0;
+    color: #777;
+    font-size: 12px;
+}
+
+.trending-shoes-header a {
+    color: #111;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .7px;
+}
+
+.trending-shoe-card {
+    width: 100%;
+}
+
+.trending-shoe-image {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    background: #f5f5f5;
+    border-radius: 9px;
+    overflow: hidden;
+    position: relative;
+}
+
+.trending-shoe-image a {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.trending-shoe-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform .3s ease;
+}
+
+.trending-shoe-card:hover .trending-shoe-image img {
+    transform: scale(1.02);
+}
+
+.trending-heart {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 42px;
+    height: 42px;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+    font-size: 27px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 3px;
+    cursor: pointer;
+}
+
+.trending-shoe-info {
+    display: block;
+    text-decoration: none;
+    color: #111;
+    padding-top: 11px;
+}
+
+.trending-shoe-info h5 {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    margin: 0 0 7px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.trending-price {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.trending-save {
+    background: #d9272e;
+    color: #fff;
+    padding: 4px 5px;
+    border-radius: 4px;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.trending-sale-price {
+    color: #d9272e;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.trending-old-price {
+    color: #777;
+    font-size: 11px;
+    text-decoration: line-through;
+}
+
+.trending-no-image {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #777;
+    font-size: 12px;
+}
+
+@media (max-width: 767px) {
+    .trending-shoes-section {
+        padding: 35px 0 45px;
+    }
+
+    .trending-shoes-header {
+        margin-bottom: 18px;
+    }
+
+    .trending-shoes-header h2 {
+        font-size: 19px;
+    }
+
+    .trending-shoes-header p {
+        font-size: 10px;
+    }
+
+    .trending-shoes-header a {
+        font-size: 9px;
+    }
+
+    .trending-shoe-image {
+        border-radius: 8px;
+    }
+
+    .trending-heart {
+        width: 34px;
+        height: 34px;
+        font-size: 23px;
+    }
+
+    .trending-shoe-info {
+        padding-top: 8px;
+    }
+
+    .trending-shoe-info h5 {
+        font-size: 11px;
+        line-height: 15px;
+        margin-bottom: 5px;
+    }
+
+    .trending-save {
+        font-size: 8px;
+        padding: 3px 4px;
+    }
+
+    .trending-sale-price {
+        font-size: 11px;
+    }
+
+    .trending-old-price {
+        font-size: 9px;
+    }
+}
+
+@media (max-width: 480px) {
+    .trending-shoes-section {
+        padding: 30px 0 40px;
+    }
+
+    .trending-shoes-header h2 {
+        font-size: 17px;
+    }
+
+    .trending-shoe-image {
+        aspect-ratio: 3 / 4;
+    }
+
+    .trending-heart {
+        width: 30px;
+        height: 30px;
+        font-size: 20px;
+    }
+}

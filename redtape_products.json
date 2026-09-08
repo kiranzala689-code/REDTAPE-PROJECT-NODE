@@ -1,0 +1,2792 @@
+[
+  {
+    "name": "REDTAPE Casual Sneakers",
+    "description": "Stylish casual sneakers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Sneakers",
+    "gender": "Men",
+    "price": 3299,
+    "discountPrice": 2630,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+1+View+1",
+      "https://placehold.co/810x1000?text=Product+1+View+2",
+      "https://placehold.co/810x1000?text=Product+1+View+3",
+      "https://placehold.co/810x1000?text=Product+1+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Tan",
+      "Brown"
+    ],
+    "material": "Synthetic",
+    "stock": 50,
+    "rating": 4.0,
+    "reviewsCount": 55
+  },
+  {
+    "name": "REDTAPE Running Shoes",
+    "description": "Stylish running shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Running",
+    "gender": "Men",
+    "price": 3299,
+    "discountPrice": 2630,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+2+View+1",
+      "https://placehold.co/810x1000?text=Product+2+View+2",
+      "https://placehold.co/810x1000?text=Product+2+View+3",
+      "https://placehold.co/810x1000?text=Product+2+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "material": "Synthetic",
+    "stock": 69,
+    "rating": 3.8,
+    "reviewsCount": 43
+  },
+  {
+    "name": "REDTAPE Sports Shoes",
+    "description": "Stylish sports shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Sports",
+    "gender": "Men",
+    "price": 2299,
+    "discountPrice": 1720,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+3+View+1",
+      "https://placehold.co/810x1000?text=Product+3+View+2",
+      "https://placehold.co/810x1000?text=Product+3+View+3",
+      "https://placehold.co/810x1000?text=Product+3+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "material": "Synthetic",
+    "stock": 40,
+    "rating": 4.5,
+    "reviewsCount": 199
+  },
+  {
+    "name": "REDTAPE Formal Shoes",
+    "description": "Stylish formal shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Formal",
+    "gender": "Men",
+    "price": 2999,
+    "discountPrice": 1940,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+4+View+1",
+      "https://placehold.co/810x1000?text=Product+4+View+2",
+      "https://placehold.co/810x1000?text=Product+4+View+3",
+      "https://placehold.co/810x1000?text=Product+4+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "material": "Mesh",
+    "stock": 50,
+    "rating": 4.6,
+    "reviewsCount": 21
+  },
+  {
+    "name": "REDTAPE Loafers",
+    "description": "Stylish loafers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Loafers",
+    "gender": "Men",
+    "price": 3999,
+    "discountPrice": 2990,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+5+View+1",
+      "https://placehold.co/810x1000?text=Product+5+View+2",
+      "https://placehold.co/810x1000?text=Product+5+View+3",
+      "https://placehold.co/810x1000?text=Product+5+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Beige",
+      "Black"
+    ],
+    "material": "Textile",
+    "stock": 50,
+    "rating": 4.0,
+    "reviewsCount": 215
+  },
+  {
+    "name": "REDTAPE Casual Shoes",
+    "description": "Stylish casual shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Casual",
+    "gender": "Men",
+    "price": 2499,
+    "discountPrice": 1990,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+6+View+1",
+      "https://placehold.co/810x1000?text=Product+6+View+2",
+      "https://placehold.co/810x1000?text=Product+6+View+3",
+      "https://placehold.co/810x1000?text=Product+6+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Synthetic",
+    "stock": 27,
+    "rating": 4.2,
+    "reviewsCount": 108
+  },
+  {
+    "name": "REDTAPE High Top Sneakers",
+    "description": "Stylish high top sneakers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Sneakers",
+    "gender": "Men",
+    "price": 2999,
+    "discountPrice": 2090,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+7+View+1",
+      "https://placehold.co/810x1000?text=Product+7+View+2",
+      "https://placehold.co/810x1000?text=Product+7+View+3",
+      "https://placehold.co/810x1000?text=Product+7+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Tan",
+      "Brown"
+    ],
+    "material": "Synthetic",
+    "stock": 73,
+    "rating": 4.3,
+    "reviewsCount": 116
+  },
+  {
+    "name": "REDTAPE Walking Shoes",
+    "description": "Stylish walking shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Running",
+    "gender": "Men",
+    "price": 1999,
+    "discountPrice": 1190,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+8+View+1",
+      "https://placehold.co/810x1000?text=Product+8+View+2",
+      "https://placehold.co/810x1000?text=Product+8+View+3",
+      "https://placehold.co/810x1000?text=Product+8+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Leather",
+    "stock": 61,
+    "rating": 4.4,
+    "reviewsCount": 200
+  },
+  {
+    "name": "REDTAPE Leather Formal Shoes",
+    "description": "Stylish leather formal shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Formal",
+    "gender": "Men",
+    "price": 1999,
+    "discountPrice": 1590,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+9+View+1",
+      "https://placehold.co/810x1000?text=Product+9+View+2",
+      "https://placehold.co/810x1000?text=Product+9+View+3",
+      "https://placehold.co/810x1000?text=Product+9+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Brown",
+      "Black"
+    ],
+    "material": "Mesh",
+    "stock": 25,
+    "rating": 4.7,
+    "reviewsCount": 241
+  },
+  {
+    "name": "REDTAPE Comfort Loafers",
+    "description": "Stylish comfort loafers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Loafers",
+    "gender": "Men",
+    "price": 1999,
+    "discountPrice": 1290,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+10+View+1",
+      "https://placehold.co/810x1000?text=Product+10+View+2",
+      "https://placehold.co/810x1000?text=Product+10+View+3",
+      "https://placehold.co/810x1000?text=Product+10+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "material": "Leather",
+    "stock": 61,
+    "rating": 4.0,
+    "reviewsCount": 110
+  },
+  {
+    "name": "REDTAPE Training Shoes",
+    "description": "Stylish training shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Sports",
+    "gender": "Men",
+    "price": 2299,
+    "discountPrice": 1600,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+11+View+1",
+      "https://placehold.co/810x1000?text=Product+11+View+2",
+      "https://placehold.co/810x1000?text=Product+11+View+3",
+      "https://placehold.co/810x1000?text=Product+11+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "material": "Synthetic",
+    "stock": 36,
+    "rating": 4.3,
+    "reviewsCount": 82
+  },
+  {
+    "name": "REDTAPE Classic Sneakers",
+    "description": "Stylish classic sneakers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Sneakers",
+    "gender": "Men",
+    "price": 2299,
+    "discountPrice": 1490,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+12+View+1",
+      "https://placehold.co/810x1000?text=Product+12+View+2",
+      "https://placehold.co/810x1000?text=Product+12+View+3",
+      "https://placehold.co/810x1000?text=Product+12+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Brown",
+      "Black"
+    ],
+    "material": "Textile",
+    "stock": 43,
+    "rating": 4.5,
+    "reviewsCount": 235
+  },
+  {
+    "name": "REDTAPE Daily Wear Shoes",
+    "description": "Stylish daily wear shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Casual",
+    "gender": "Men",
+    "price": 3999,
+    "discountPrice": 3190,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+13+View+1",
+      "https://placehold.co/810x1000?text=Product+13+View+2",
+      "https://placehold.co/810x1000?text=Product+13+View+3",
+      "https://placehold.co/810x1000?text=Product+13+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Mesh",
+    "stock": 55,
+    "rating": 4.2,
+    "reviewsCount": 36
+  },
+  {
+    "name": "REDTAPE Premium Boots",
+    "description": "Stylish premium boots designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Boots",
+    "gender": "Men",
+    "price": 2299,
+    "discountPrice": 1370,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+14+View+1",
+      "https://placehold.co/810x1000?text=Product+14+View+2",
+      "https://placehold.co/810x1000?text=Product+14+View+3",
+      "https://placehold.co/810x1000?text=Product+14+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Leather",
+    "stock": 78,
+    "rating": 4.2,
+    "reviewsCount": 184
+  },
+  {
+    "name": "REDTAPE Summer Sandals",
+    "description": "Stylish summer sandals designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Footwear",
+    "subCategory": "Sandals",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 2090,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+15+View+1",
+      "https://placehold.co/810x1000?text=Product+15+View+2",
+      "https://placehold.co/810x1000?text=Product+15+View+3",
+      "https://placehold.co/810x1000?text=Product+15+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "material": "Leather",
+    "stock": 46,
+    "rating": 4.5,
+    "reviewsCount": 157
+  },
+  {
+    "name": "REDTAPE Slim Fit Jeans",
+    "description": "Stylish slim fit jeans designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Jeans",
+    "gender": "Men",
+    "price": 1699,
+    "discountPrice": 1010,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+16+View+1",
+      "https://placehold.co/810x1000?text=Product+16+View+2",
+      "https://placehold.co/810x1000?text=Product+16+View+3",
+      "https://placehold.co/810x1000?text=Product+16+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "material": "Premium Cotton",
+    "stock": 66,
+    "rating": 4.2,
+    "reviewsCount": 55
+  },
+  {
+    "name": "REDTAPE Regular Fit Jeans",
+    "description": "Stylish regular fit jeans designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Jeans",
+    "gender": "Men",
+    "price": 2199,
+    "discountPrice": 1420,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+17+View+1",
+      "https://placehold.co/810x1000?text=Product+17+View+2",
+      "https://placehold.co/810x1000?text=Product+17+View+3",
+      "https://placehold.co/810x1000?text=Product+17+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 29,
+    "rating": 4.0,
+    "reviewsCount": 60
+  },
+  {
+    "name": "REDTAPE Cargo Pants",
+    "description": "Stylish cargo pants designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Cargo",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 1810,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+18+View+1",
+      "https://placehold.co/810x1000?text=Product+18+View+2",
+      "https://placehold.co/810x1000?text=Product+18+View+3",
+      "https://placehold.co/810x1000?text=Product+18+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 63,
+    "rating": 4.4,
+    "reviewsCount": 139
+  },
+  {
+    "name": "REDTAPE Cotton Trousers",
+    "description": "Stylish cotton trousers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Trousers",
+    "gender": "Men",
+    "price": 2199,
+    "discountPrice": 1530,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+19+View+1",
+      "https://placehold.co/810x1000?text=Product+19+View+2",
+      "https://placehold.co/810x1000?text=Product+19+View+3",
+      "https://placehold.co/810x1000?text=Product+19+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 29,
+    "rating": 4.5,
+    "reviewsCount": 157
+  },
+  {
+    "name": "REDTAPE Relaxed Fit Pants",
+    "description": "Stylish relaxed fit pants designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Casual",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 1950,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+20+View+1",
+      "https://placehold.co/810x1000?text=Product+20+View+2",
+      "https://placehold.co/810x1000?text=Product+20+View+3",
+      "https://placehold.co/810x1000?text=Product+20+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "material": "Poly Cotton",
+    "stock": 52,
+    "rating": 4.2,
+    "reviewsCount": 136
+  },
+  {
+    "name": "REDTAPE Jogger Pants",
+    "description": "Stylish jogger pants designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Joggers",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 900,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+21+View+1",
+      "https://placehold.co/810x1000?text=Product+21+View+2",
+      "https://placehold.co/810x1000?text=Product+21+View+3",
+      "https://placehold.co/810x1000?text=Product+21+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 28,
+    "rating": 4.7,
+    "reviewsCount": 96
+  },
+  {
+    "name": "REDTAPE Stretch Jeans",
+    "description": "Stylish stretch jeans designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Jeans",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 1670,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+22+View+1",
+      "https://placehold.co/810x1000?text=Product+22+View+2",
+      "https://placehold.co/810x1000?text=Product+22+View+3",
+      "https://placehold.co/810x1000?text=Product+22+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "material": "Linen Blend",
+    "stock": 62,
+    "rating": 4.6,
+    "reviewsCount": 158
+  },
+  {
+    "name": "REDTAPE Straight Fit Pants",
+    "description": "Stylish straight fit pants designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Trousers",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 1670,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+23+View+1",
+      "https://placehold.co/810x1000?text=Product+23+View+2",
+      "https://placehold.co/810x1000?text=Product+23+View+3",
+      "https://placehold.co/810x1000?text=Product+23+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "material": "Cotton",
+    "stock": 56,
+    "rating": 4.3,
+    "reviewsCount": 48
+  },
+  {
+    "name": "REDTAPE Utility Cargo Pants",
+    "description": "Stylish utility cargo pants designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Cargo",
+    "gender": "Men",
+    "price": 1699,
+    "discountPrice": 1180,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+24+View+1",
+      "https://placehold.co/810x1000?text=Product+24+View+2",
+      "https://placehold.co/810x1000?text=Product+24+View+3",
+      "https://placehold.co/810x1000?text=Product+24+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 45,
+    "rating": 4.7,
+    "reviewsCount": 40
+  },
+  {
+    "name": "REDTAPE Casual Chinos",
+    "description": "Stylish casual chinos designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Chinos",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 840,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+25+View+1",
+      "https://placehold.co/810x1000?text=Product+25+View+2",
+      "https://placehold.co/810x1000?text=Product+25+View+3",
+      "https://placehold.co/810x1000?text=Product+25+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 31,
+    "rating": 3.9,
+    "reviewsCount": 141
+  },
+  {
+    "name": "REDTAPE Slim Trousers",
+    "description": "Stylish slim trousers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Trousers",
+    "gender": "Men",
+    "price": 2199,
+    "discountPrice": 1640,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+26+View+1",
+      "https://placehold.co/810x1000?text=Product+26+View+2",
+      "https://placehold.co/810x1000?text=Product+26+View+3",
+      "https://placehold.co/810x1000?text=Product+26+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "material": "Poly Cotton",
+    "stock": 69,
+    "rating": 4.8,
+    "reviewsCount": 158
+  },
+  {
+    "name": "REDTAPE Comfort Joggers",
+    "description": "Stylish comfort joggers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Joggers",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 2090,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+27+View+1",
+      "https://placehold.co/810x1000?text=Product+27+View+2",
+      "https://placehold.co/810x1000?text=Product+27+View+3",
+      "https://placehold.co/810x1000?text=Product+27+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Poly Cotton",
+    "stock": 62,
+    "rating": 4.2,
+    "reviewsCount": 152
+  },
+  {
+    "name": "REDTAPE Denim Cargo",
+    "description": "Stylish denim cargo designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Cargo",
+    "gender": "Men",
+    "price": 1899,
+    "discountPrice": 1510,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+28+View+1",
+      "https://placehold.co/810x1000?text=Product+28+View+2",
+      "https://placehold.co/810x1000?text=Product+28+View+3",
+      "https://placehold.co/810x1000?text=Product+28+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 23,
+    "rating": 4.1,
+    "reviewsCount": 170
+  },
+  {
+    "name": "REDTAPE Classic Chinos",
+    "description": "Stylish classic chinos designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Chinos",
+    "gender": "Men",
+    "price": 2199,
+    "discountPrice": 1640,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+29+View+1",
+      "https://placehold.co/810x1000?text=Product+29+View+2",
+      "https://placehold.co/810x1000?text=Product+29+View+3",
+      "https://placehold.co/810x1000?text=Product+29+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 24,
+    "rating": 4.5,
+    "reviewsCount": 35
+  },
+  {
+    "name": "REDTAPE Cotton Joggers",
+    "description": "Stylish cotton joggers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Pants",
+    "subCategory": "Joggers",
+    "gender": "Men",
+    "price": 1499,
+    "discountPrice": 1190,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+30+View+1",
+      "https://placehold.co/810x1000?text=Product+30+View+2",
+      "https://placehold.co/810x1000?text=Product+30+View+3",
+      "https://placehold.co/810x1000?text=Product+30+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Beige",
+      "Black"
+    ],
+    "material": "Cotton",
+    "stock": 24,
+    "rating": 4.3,
+    "reviewsCount": 91
+  },
+  {
+    "name": "REDTAPE Slim Fit Casual Shirt",
+    "description": "Stylish slim fit casual shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Casual Shirt",
+    "gender": "Men",
+    "price": 2499,
+    "discountPrice": 1620,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+31+View+1",
+      "https://placehold.co/810x1000?text=Product+31+View+2",
+      "https://placehold.co/810x1000?text=Product+31+View+3",
+      "https://placehold.co/810x1000?text=Product+31+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 31,
+    "rating": 4.5,
+    "reviewsCount": 245
+  },
+  {
+    "name": "REDTAPE Checked Casual Shirt",
+    "description": "Stylish checked casual shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Casual Shirt",
+    "gender": "Men",
+    "price": 2199,
+    "discountPrice": 1310,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+32+View+1",
+      "https://placehold.co/810x1000?text=Product+32+View+2",
+      "https://placehold.co/810x1000?text=Product+32+View+3",
+      "https://placehold.co/810x1000?text=Product+32+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Premium Cotton",
+    "stock": 75,
+    "rating": 4.6,
+    "reviewsCount": 68
+  },
+  {
+    "name": "REDTAPE Solid Cotton Shirt",
+    "description": "Stylish solid cotton shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Casual Shirt",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 1030,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+33+View+1",
+      "https://placehold.co/810x1000?text=Product+33+View+2",
+      "https://placehold.co/810x1000?text=Product+33+View+3",
+      "https://placehold.co/810x1000?text=Product+33+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Beige",
+      "Black"
+    ],
+    "material": "Premium Cotton",
+    "stock": 69,
+    "rating": 4.2,
+    "reviewsCount": 241
+  },
+  {
+    "name": "REDTAPE Printed Shirt",
+    "description": "Stylish printed shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Printed Shirt",
+    "gender": "Men",
+    "price": 2499,
+    "discountPrice": 1990,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+34+View+1",
+      "https://placehold.co/810x1000?text=Product+34+View+2",
+      "https://placehold.co/810x1000?text=Product+34+View+3",
+      "https://placehold.co/810x1000?text=Product+34+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 66,
+    "rating": 4.5,
+    "reviewsCount": 224
+  },
+  {
+    "name": "REDTAPE Linen Blend Shirt",
+    "description": "Stylish linen blend shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Linen Shirt",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 2230,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+35+View+1",
+      "https://placehold.co/810x1000?text=Product+35+View+2",
+      "https://placehold.co/810x1000?text=Product+35+View+3",
+      "https://placehold.co/810x1000?text=Product+35+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 39,
+    "rating": 4.3,
+    "reviewsCount": 55
+  },
+  {
+    "name": "REDTAPE Oxford Shirt",
+    "description": "Stylish oxford shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Formal Shirt",
+    "gender": "Men",
+    "price": 1899,
+    "discountPrice": 1420,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+36+View+1",
+      "https://placehold.co/810x1000?text=Product+36+View+2",
+      "https://placehold.co/810x1000?text=Product+36+View+3",
+      "https://placehold.co/810x1000?text=Product+36+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "material": "Poly Cotton",
+    "stock": 46,
+    "rating": 4.7,
+    "reviewsCount": 39
+  },
+  {
+    "name": "REDTAPE Striped Shirt",
+    "description": "Stylish striped shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Casual Shirt",
+    "gender": "Men",
+    "price": 1899,
+    "discountPrice": 1130,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+37+View+1",
+      "https://placehold.co/810x1000?text=Product+37+View+2",
+      "https://placehold.co/810x1000?text=Product+37+View+3",
+      "https://placehold.co/810x1000?text=Product+37+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 16,
+    "rating": 4.8,
+    "reviewsCount": 212
+  },
+  {
+    "name": "REDTAPE Denim Shirt",
+    "description": "Stylish denim shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Denim Shirt",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 2090,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+38+View+1",
+      "https://placehold.co/810x1000?text=Product+38+View+2",
+      "https://placehold.co/810x1000?text=Product+38+View+3",
+      "https://placehold.co/810x1000?text=Product+38+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 77,
+    "rating": 4.3,
+    "reviewsCount": 241
+  },
+  {
+    "name": "REDTAPE Regular Fit Shirt",
+    "description": "Stylish regular fit shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Casual Shirt",
+    "gender": "Men",
+    "price": 1899,
+    "discountPrice": 1510,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+39+View+1",
+      "https://placehold.co/810x1000?text=Product+39+View+2",
+      "https://placehold.co/810x1000?text=Product+39+View+3",
+      "https://placehold.co/810x1000?text=Product+39+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 15,
+    "rating": 4.8,
+    "reviewsCount": 87
+  },
+  {
+    "name": "REDTAPE Textured Shirt",
+    "description": "Stylish textured shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Casual Shirt",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 1810,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+40+View+1",
+      "https://placehold.co/810x1000?text=Product+40+View+2",
+      "https://placehold.co/810x1000?text=Product+40+View+3",
+      "https://placehold.co/810x1000?text=Product+40+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Poly Cotton",
+    "stock": 77,
+    "rating": 4.0,
+    "reviewsCount": 95
+  },
+  {
+    "name": "REDTAPE Formal Shirt",
+    "description": "Stylish formal shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Formal Shirt",
+    "gender": "Men",
+    "price": 1499,
+    "discountPrice": 1190,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+41+View+1",
+      "https://placehold.co/810x1000?text=Product+41+View+2",
+      "https://placehold.co/810x1000?text=Product+41+View+3",
+      "https://placehold.co/810x1000?text=Product+41+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Tan",
+      "Brown"
+    ],
+    "material": "Cotton",
+    "stock": 55,
+    "rating": 3.9,
+    "reviewsCount": 169
+  },
+  {
+    "name": "REDTAPE Half Sleeve Shirt",
+    "description": "Stylish half sleeve shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Casual Shirt",
+    "gender": "Men",
+    "price": 1899,
+    "discountPrice": 1130,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+42+View+1",
+      "https://placehold.co/810x1000?text=Product+42+View+2",
+      "https://placehold.co/810x1000?text=Product+42+View+3",
+      "https://placehold.co/810x1000?text=Product+42+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 80,
+    "rating": 3.9,
+    "reviewsCount": 67
+  },
+  {
+    "name": "REDTAPE Tropical Print Shirt",
+    "description": "Stylish tropical print shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Printed Shirt",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 770,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+43+View+1",
+      "https://placehold.co/810x1000?text=Product+43+View+2",
+      "https://placehold.co/810x1000?text=Product+43+View+3",
+      "https://placehold.co/810x1000?text=Product+43+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 45,
+    "rating": 4.2,
+    "reviewsCount": 247
+  },
+  {
+    "name": "REDTAPE Premium Cotton Shirt",
+    "description": "Stylish premium cotton shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Casual Shirt",
+    "gender": "Men",
+    "price": 2199,
+    "discountPrice": 1640,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+44+View+1",
+      "https://placehold.co/810x1000?text=Product+44+View+2",
+      "https://placehold.co/810x1000?text=Product+44+View+3",
+      "https://placehold.co/810x1000?text=Product+44+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "material": "Cotton",
+    "stock": 25,
+    "rating": 4.2,
+    "reviewsCount": 169
+  },
+  {
+    "name": "REDTAPE Oversized Shirt",
+    "description": "Stylish oversized shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Shirts",
+    "subCategory": "Oversized Shirt",
+    "gender": "Men",
+    "price": 2199,
+    "discountPrice": 1310,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+45+View+1",
+      "https://placehold.co/810x1000?text=Product+45+View+2",
+      "https://placehold.co/810x1000?text=Product+45+View+3",
+      "https://placehold.co/810x1000?text=Product+45+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Brown",
+      "Black"
+    ],
+    "material": "Poly Cotton",
+    "stock": 41,
+    "rating": 4.5,
+    "reviewsCount": 100
+  },
+  {
+    "name": "REDTAPE Women Casual Sneakers",
+    "description": "Stylish women casual sneakers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Footwear",
+    "gender": "Women",
+    "price": 1499,
+    "discountPrice": 1040,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+46+View+1",
+      "https://placehold.co/810x1000?text=Product+46+View+2",
+      "https://placehold.co/810x1000?text=Product+46+View+3",
+      "https://placehold.co/810x1000?text=Product+46+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "material": "Textile",
+    "stock": 53,
+    "rating": 4.3,
+    "reviewsCount": 212
+  },
+  {
+    "name": "REDTAPE Women Running Shoes",
+    "description": "Stylish women running shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Footwear",
+    "gender": "Women",
+    "price": 1299,
+    "discountPrice": 1030,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+47+View+1",
+      "https://placehold.co/810x1000?text=Product+47+View+2",
+      "https://placehold.co/810x1000?text=Product+47+View+3",
+      "https://placehold.co/810x1000?text=Product+47+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "material": "Textile",
+    "stock": 27,
+    "rating": 3.9,
+    "reviewsCount": 74
+  },
+  {
+    "name": "REDTAPE Women Casual Shirt",
+    "description": "Stylish women casual shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Shirts",
+    "gender": "Women",
+    "price": 2199,
+    "discountPrice": 1530,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+48+View+1",
+      "https://placehold.co/810x1000?text=Product+48+View+2",
+      "https://placehold.co/810x1000?text=Product+48+View+3",
+      "https://placehold.co/810x1000?text=Product+48+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Beige",
+      "Black"
+    ],
+    "material": "Linen Blend",
+    "stock": 23,
+    "rating": 4.7,
+    "reviewsCount": 114
+  },
+  {
+    "name": "REDTAPE Women Relaxed Pants",
+    "description": "Stylish women relaxed pants designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Pants",
+    "gender": "Women",
+    "price": 1699,
+    "discountPrice": 1270,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+49+View+1",
+      "https://placehold.co/810x1000?text=Product+49+View+2",
+      "https://placehold.co/810x1000?text=Product+49+View+3",
+      "https://placehold.co/810x1000?text=Product+49+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "material": "Premium Cotton",
+    "stock": 53,
+    "rating": 4.4,
+    "reviewsCount": 226
+  },
+  {
+    "name": "REDTAPE Women Straight Jeans",
+    "description": "Stylish women straight jeans designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Jeans",
+    "gender": "Women",
+    "price": 2499,
+    "discountPrice": 1490,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+50+View+1",
+      "https://placehold.co/810x1000?text=Product+50+View+2",
+      "https://placehold.co/810x1000?text=Product+50+View+3",
+      "https://placehold.co/810x1000?text=Product+50+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 53,
+    "rating": 4.7,
+    "reviewsCount": 46
+  },
+  {
+    "name": "REDTAPE Women Printed Top",
+    "description": "Stylish women printed top designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Tops",
+    "gender": "Women",
+    "price": 1499,
+    "discountPrice": 1040,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+51+View+1",
+      "https://placehold.co/810x1000?text=Product+51+View+2",
+      "https://placehold.co/810x1000?text=Product+51+View+3",
+      "https://placehold.co/810x1000?text=Product+51+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 34,
+    "rating": 4.1,
+    "reviewsCount": 174
+  },
+  {
+    "name": "REDTAPE Women Oversized T-Shirt",
+    "description": "Stylish women oversized t-shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "T-Shirts",
+    "gender": "Women",
+    "price": 1499,
+    "discountPrice": 1040,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+52+View+1",
+      "https://placehold.co/810x1000?text=Product+52+View+2",
+      "https://placehold.co/810x1000?text=Product+52+View+3",
+      "https://placehold.co/810x1000?text=Product+52+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 48,
+    "rating": 4.3,
+    "reviewsCount": 84
+  },
+  {
+    "name": "REDTAPE Women Cotton Shirt",
+    "description": "Stylish women cotton shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Shirts",
+    "gender": "Women",
+    "price": 2799,
+    "discountPrice": 2230,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+53+View+1",
+      "https://placehold.co/810x1000?text=Product+53+View+2",
+      "https://placehold.co/810x1000?text=Product+53+View+3",
+      "https://placehold.co/810x1000?text=Product+53+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 69,
+    "rating": 4.6,
+    "reviewsCount": 31
+  },
+  {
+    "name": "REDTAPE Women Cargo Pants",
+    "description": "Stylish women cargo pants designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Pants",
+    "gender": "Women",
+    "price": 1299,
+    "discountPrice": 900,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+54+View+1",
+      "https://placehold.co/810x1000?text=Product+54+View+2",
+      "https://placehold.co/810x1000?text=Product+54+View+3",
+      "https://placehold.co/810x1000?text=Product+54+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 48,
+    "rating": 4.0,
+    "reviewsCount": 133
+  },
+  {
+    "name": "REDTAPE Women Comfort Sneakers",
+    "description": "Stylish women comfort sneakers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Footwear",
+    "gender": "Women",
+    "price": 2199,
+    "discountPrice": 1420,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+55+View+1",
+      "https://placehold.co/810x1000?text=Product+55+View+2",
+      "https://placehold.co/810x1000?text=Product+55+View+3",
+      "https://placehold.co/810x1000?text=Product+55+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Blue",
+      "White"
+    ],
+    "material": "Synthetic",
+    "stock": 24,
+    "rating": 4.7,
+    "reviewsCount": 196
+  },
+  {
+    "name": "REDTAPE Women Casual Trousers",
+    "description": "Stylish women casual trousers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Pants",
+    "gender": "Women",
+    "price": 1499,
+    "discountPrice": 890,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+56+View+1",
+      "https://placehold.co/810x1000?text=Product+56+View+2",
+      "https://placehold.co/810x1000?text=Product+56+View+3",
+      "https://placehold.co/810x1000?text=Product+56+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Beige",
+      "Black"
+    ],
+    "material": "Cotton",
+    "stock": 33,
+    "rating": 4.2,
+    "reviewsCount": 30
+  },
+  {
+    "name": "REDTAPE Women Graphic T-Shirt",
+    "description": "Stylish women graphic t-shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "T-Shirts",
+    "gender": "Women",
+    "price": 1699,
+    "discountPrice": 1180,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+57+View+1",
+      "https://placehold.co/810x1000?text=Product+57+View+2",
+      "https://placehold.co/810x1000?text=Product+57+View+3",
+      "https://placehold.co/810x1000?text=Product+57+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Beige",
+      "Black"
+    ],
+    "material": "Cotton",
+    "stock": 41,
+    "rating": 4.5,
+    "reviewsCount": 190
+  },
+  {
+    "name": "REDTAPE Women Denim Shirt",
+    "description": "Stylish women denim shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Shirts",
+    "gender": "Women",
+    "price": 1299,
+    "discountPrice": 900,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+58+View+1",
+      "https://placehold.co/810x1000?text=Product+58+View+2",
+      "https://placehold.co/810x1000?text=Product+58+View+3",
+      "https://placehold.co/810x1000?text=Product+58+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "material": "Premium Cotton",
+    "stock": 34,
+    "rating": 4.7,
+    "reviewsCount": 80
+  },
+  {
+    "name": "REDTAPE Women Daily Wear Shoes",
+    "description": "Stylish women daily wear shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Footwear",
+    "gender": "Women",
+    "price": 2799,
+    "discountPrice": 2090,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+59+View+1",
+      "https://placehold.co/810x1000?text=Product+59+View+2",
+      "https://placehold.co/810x1000?text=Product+59+View+3",
+      "https://placehold.co/810x1000?text=Product+59+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Mesh",
+    "stock": 18,
+    "rating": 4.0,
+    "reviewsCount": 105
+  },
+  {
+    "name": "REDTAPE Women Relaxed Jeans",
+    "description": "Stylish women relaxed jeans designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Womens",
+    "subCategory": "Jeans",
+    "gender": "Women",
+    "price": 2799,
+    "discountPrice": 1810,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+60+View+1",
+      "https://placehold.co/810x1000?text=Product+60+View+2",
+      "https://placehold.co/810x1000?text=Product+60+View+3",
+      "https://placehold.co/810x1000?text=Product+60+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Brown",
+      "Black"
+    ],
+    "material": "Linen Blend",
+    "stock": 35,
+    "rating": 4.6,
+    "reviewsCount": 47
+  },
+  {
+    "name": "REDTAPE Classic Black Sunglasses",
+    "description": "Stylish classic black sunglasses designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Sunglasses",
+    "gender": "Men",
+    "price": 999,
+    "discountPrice": 790,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+61+View+1",
+      "https://placehold.co/810x1000?text=Product+61+View+2",
+      "https://placehold.co/810x1000?text=Product+61+View+3",
+      "https://placehold.co/810x1000?text=Product+61+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Premium Cotton",
+    "stock": 40,
+    "rating": 4.6,
+    "reviewsCount": 137
+  },
+  {
+    "name": "REDTAPE UV Protection Sunglasses",
+    "description": "Stylish uv protection sunglasses designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Sunglasses",
+    "gender": "Men",
+    "price": 899,
+    "discountPrice": 620,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+62+View+1",
+      "https://placehold.co/810x1000?text=Product+62+View+2",
+      "https://placehold.co/810x1000?text=Product+62+View+3",
+      "https://placehold.co/810x1000?text=Product+62+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 18,
+    "rating": 4.5,
+    "reviewsCount": 122
+  },
+  {
+    "name": "REDTAPE Polarized Sunglasses",
+    "description": "Stylish polarized sunglasses designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Sunglasses",
+    "gender": "Men",
+    "price": 899,
+    "discountPrice": 620,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+63+View+1",
+      "https://placehold.co/810x1000?text=Product+63+View+2",
+      "https://placehold.co/810x1000?text=Product+63+View+3",
+      "https://placehold.co/810x1000?text=Product+63+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Brown",
+      "Black"
+    ],
+    "material": "Cotton",
+    "stock": 59,
+    "rating": 4.4,
+    "reviewsCount": 122
+  },
+  {
+    "name": "REDTAPE Round Frame Sunglasses",
+    "description": "Stylish round frame sunglasses designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Sunglasses",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 770,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+64+View+1",
+      "https://placehold.co/810x1000?text=Product+64+View+2",
+      "https://placehold.co/810x1000?text=Product+64+View+3",
+      "https://placehold.co/810x1000?text=Product+64+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Poly Cotton",
+    "stock": 29,
+    "rating": 4.7,
+    "reviewsCount": 86
+  },
+  {
+    "name": "REDTAPE Cotton Ankle Socks",
+    "description": "Stylish cotton ankle socks designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Socks",
+    "gender": "Men",
+    "price": 799,
+    "discountPrice": 470,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+65+View+1",
+      "https://placehold.co/810x1000?text=Product+65+View+2",
+      "https://placehold.co/810x1000?text=Product+65+View+3",
+      "https://placehold.co/810x1000?text=Product+65+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Poly Cotton",
+    "stock": 28,
+    "rating": 4.4,
+    "reviewsCount": 108
+  },
+  {
+    "name": "REDTAPE Sports Socks Pack",
+    "description": "Stylish sports socks pack designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Socks",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 900,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+66+View+1",
+      "https://placehold.co/810x1000?text=Product+66+View+2",
+      "https://placehold.co/810x1000?text=Product+66+View+3",
+      "https://placehold.co/810x1000?text=Product+66+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "material": "Premium Cotton",
+    "stock": 80,
+    "rating": 3.9,
+    "reviewsCount": 250
+  },
+  {
+    "name": "REDTAPE Casual Crew Socks",
+    "description": "Stylish casual crew socks designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Socks",
+    "gender": "Men",
+    "price": 1199,
+    "discountPrice": 890,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+67+View+1",
+      "https://placehold.co/810x1000?text=Product+67+View+2",
+      "https://placehold.co/810x1000?text=Product+67+View+3",
+      "https://placehold.co/810x1000?text=Product+67+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Poly Cotton",
+    "stock": 70,
+    "rating": 3.8,
+    "reviewsCount": 226
+  },
+  {
+    "name": "REDTAPE Performance Socks",
+    "description": "Stylish performance socks designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Socks",
+    "gender": "Men",
+    "price": 1199,
+    "discountPrice": 890,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+68+View+1",
+      "https://placehold.co/810x1000?text=Product+68+View+2",
+      "https://placehold.co/810x1000?text=Product+68+View+3",
+      "https://placehold.co/810x1000?text=Product+68+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Poly Cotton",
+    "stock": 23,
+    "rating": 4.7,
+    "reviewsCount": 104
+  },
+  {
+    "name": "REDTAPE Classic Baseball Cap",
+    "description": "Stylish classic baseball cap designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Caps",
+    "gender": "Men",
+    "price": 1199,
+    "discountPrice": 830,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+69+View+1",
+      "https://placehold.co/810x1000?text=Product+69+View+2",
+      "https://placehold.co/810x1000?text=Product+69+View+3",
+      "https://placehold.co/810x1000?text=Product+69+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Tan",
+      "Brown"
+    ],
+    "material": "Cotton",
+    "stock": 53,
+    "rating": 4.3,
+    "reviewsCount": 190
+  },
+  {
+    "name": "REDTAPE Logo Cap",
+    "description": "Stylish logo cap designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Caps",
+    "gender": "Men",
+    "price": 999,
+    "discountPrice": 690,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+70+View+1",
+      "https://placehold.co/810x1000?text=Product+70+View+2",
+      "https://placehold.co/810x1000?text=Product+70+View+3",
+      "https://placehold.co/810x1000?text=Product+70+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Tan",
+      "Brown"
+    ],
+    "material": "Premium Cotton",
+    "stock": 52,
+    "rating": 4.4,
+    "reviewsCount": 69
+  },
+  {
+    "name": "REDTAPE Cotton Snapback Cap",
+    "description": "Stylish cotton snapback cap designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Caps",
+    "gender": "Men",
+    "price": 999,
+    "discountPrice": 640,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+71+View+1",
+      "https://placehold.co/810x1000?text=Product+71+View+2",
+      "https://placehold.co/810x1000?text=Product+71+View+3",
+      "https://placehold.co/810x1000?text=Product+71+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Olive",
+      "Black"
+    ],
+    "material": "Linen Blend",
+    "stock": 53,
+    "rating": 4.2,
+    "reviewsCount": 233
+  },
+  {
+    "name": "REDTAPE Sports Cap",
+    "description": "Stylish sports cap designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Caps",
+    "gender": "Men",
+    "price": 699,
+    "discountPrice": 480,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+72+View+1",
+      "https://placehold.co/810x1000?text=Product+72+View+2",
+      "https://placehold.co/810x1000?text=Product+72+View+3",
+      "https://placehold.co/810x1000?text=Product+72+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Poly Cotton",
+    "stock": 70,
+    "rating": 4.6,
+    "reviewsCount": 175
+  },
+  {
+    "name": "REDTAPE Classic Leather Belt",
+    "description": "Stylish classic leather belt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Belts",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 900,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+73+View+1",
+      "https://placehold.co/810x1000?text=Product+73+View+2",
+      "https://placehold.co/810x1000?text=Product+73+View+3",
+      "https://placehold.co/810x1000?text=Product+73+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "material": "Premium Cotton",
+    "stock": 71,
+    "rating": 4.5,
+    "reviewsCount": 150
+  },
+  {
+    "name": "REDTAPE Reversible Belt",
+    "description": "Stylish reversible belt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Belts",
+    "gender": "Men",
+    "price": 999,
+    "discountPrice": 740,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+74+View+1",
+      "https://placehold.co/810x1000?text=Product+74+View+2",
+      "https://placehold.co/810x1000?text=Product+74+View+3",
+      "https://placehold.co/810x1000?text=Product+74+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Brown",
+      "Black"
+    ],
+    "material": "Cotton",
+    "stock": 80,
+    "rating": 4.5,
+    "reviewsCount": 178
+  },
+  {
+    "name": "REDTAPE Casual Canvas Belt",
+    "description": "Stylish casual canvas belt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "Accessories",
+    "subCategory": "Belts",
+    "gender": "Men",
+    "price": 899,
+    "discountPrice": 710,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+75+View+1",
+      "https://placehold.co/810x1000?text=Product+75+View+2",
+      "https://placehold.co/810x1000?text=Product+75+View+3",
+      "https://placehold.co/810x1000?text=Product+75+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Linen Blend",
+    "stock": 54,
+    "rating": 4.0,
+    "reviewsCount": 70
+  },
+  {
+    "name": "REDTAPE New Arrival Sneakers",
+    "description": "Stylish new arrival sneakers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Sneakers",
+    "gender": "Men",
+    "price": 1499,
+    "discountPrice": 1190,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+76+View+1",
+      "https://placehold.co/810x1000?text=Product+76+View+2",
+      "https://placehold.co/810x1000?text=Product+76+View+3",
+      "https://placehold.co/810x1000?text=Product+76+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Synthetic",
+    "stock": 75,
+    "rating": 4.4,
+    "reviewsCount": 216
+  },
+  {
+    "name": "REDTAPE New Arrival Running Shoes",
+    "description": "Stylish new arrival running shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Running",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 840,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+77+View+1",
+      "https://placehold.co/810x1000?text=Product+77+View+2",
+      "https://placehold.co/810x1000?text=Product+77+View+3",
+      "https://placehold.co/810x1000?text=Product+77+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Textile",
+    "stock": 39,
+    "rating": 4.5,
+    "reviewsCount": 118
+  },
+  {
+    "name": "REDTAPE New Arrival Casual Shirt",
+    "description": "Stylish new arrival casual shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Shirts",
+    "gender": "Men",
+    "price": 1899,
+    "discountPrice": 1230,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+78+View+1",
+      "https://placehold.co/810x1000?text=Product+78+View+2",
+      "https://placehold.co/810x1000?text=Product+78+View+3",
+      "https://placehold.co/810x1000?text=Product+78+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "Grey"
+    ],
+    "material": "Linen Blend",
+    "stock": 15,
+    "rating": 4.7,
+    "reviewsCount": 240
+  },
+  {
+    "name": "REDTAPE New Arrival Cargo Pants",
+    "description": "Stylish new arrival cargo pants designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Pants",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 2230,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+79+View+1",
+      "https://placehold.co/810x1000?text=Product+79+View+2",
+      "https://placehold.co/810x1000?text=Product+79+View+3",
+      "https://placehold.co/810x1000?text=Product+79+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Premium Cotton",
+    "stock": 37,
+    "rating": 4.6,
+    "reviewsCount": 198
+  },
+  {
+    "name": "REDTAPE New Arrival Sunglasses",
+    "description": "Stylish new arrival sunglasses designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Sunglasses",
+    "gender": "Men",
+    "price": 2199,
+    "discountPrice": 1420,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+80+View+1",
+      "https://placehold.co/810x1000?text=Product+80+View+2",
+      "https://placehold.co/810x1000?text=Product+80+View+3",
+      "https://placehold.co/810x1000?text=Product+80+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "material": "Cotton",
+    "stock": 46,
+    "rating": 4.7,
+    "reviewsCount": 51
+  },
+  {
+    "name": "REDTAPE New Arrival Cap",
+    "description": "Stylish new arrival cap designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Caps",
+    "gender": "Men",
+    "price": 1899,
+    "discountPrice": 1420,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+81+View+1",
+      "https://placehold.co/810x1000?text=Product+81+View+2",
+      "https://placehold.co/810x1000?text=Product+81+View+3",
+      "https://placehold.co/810x1000?text=Product+81+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Premium Cotton",
+    "stock": 55,
+    "rating": 4.8,
+    "reviewsCount": 248
+  },
+  {
+    "name": "REDTAPE New Arrival Formal Shoes",
+    "description": "Stylish new arrival formal shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Formal",
+    "gender": "Men",
+    "price": 1899,
+    "discountPrice": 1130,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+82+View+1",
+      "https://placehold.co/810x1000?text=Product+82+View+2",
+      "https://placehold.co/810x1000?text=Product+82+View+3",
+      "https://placehold.co/810x1000?text=Product+82+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Grey",
+      "White"
+    ],
+    "material": "Textile",
+    "stock": 72,
+    "rating": 4.7,
+    "reviewsCount": 210
+  },
+  {
+    "name": "REDTAPE New Arrival Jeans",
+    "description": "Stylish new arrival jeans designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Jeans",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 1810,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+83+View+1",
+      "https://placehold.co/810x1000?text=Product+83+View+2",
+      "https://placehold.co/810x1000?text=Product+83+View+3",
+      "https://placehold.co/810x1000?text=Product+83+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Brown",
+      "Black"
+    ],
+    "material": "Premium Cotton",
+    "stock": 46,
+    "rating": 4.6,
+    "reviewsCount": 90
+  },
+  {
+    "name": "REDTAPE New Arrival Printed Shirt",
+    "description": "Stylish new arrival printed shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Shirts",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 1670,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+84+View+1",
+      "https://placehold.co/810x1000?text=Product+84+View+2",
+      "https://placehold.co/810x1000?text=Product+84+View+3",
+      "https://placehold.co/810x1000?text=Product+84+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Maroon",
+      "White"
+    ],
+    "material": "Premium Cotton",
+    "stock": 45,
+    "rating": 4.1,
+    "reviewsCount": 39
+  },
+  {
+    "name": "REDTAPE New Arrival Joggers",
+    "description": "Stylish new arrival joggers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Joggers",
+    "gender": "Men",
+    "price": 2499,
+    "discountPrice": 1740,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+85+View+1",
+      "https://placehold.co/810x1000?text=Product+85+View+2",
+      "https://placehold.co/810x1000?text=Product+85+View+3",
+      "https://placehold.co/810x1000?text=Product+85+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Brown",
+      "Black"
+    ],
+    "material": "Linen Blend",
+    "stock": 57,
+    "rating": 4.1,
+    "reviewsCount": 158
+  },
+  {
+    "name": "REDTAPE New Arrival Sports Shoes",
+    "description": "Stylish new arrival sports shoes designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Sports",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 970,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+86+View+1",
+      "https://placehold.co/810x1000?text=Product+86+View+2",
+      "https://placehold.co/810x1000?text=Product+86+View+3",
+      "https://placehold.co/810x1000?text=Product+86+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Navy",
+      "White"
+    ],
+    "material": "Mesh",
+    "stock": 64,
+    "rating": 4.5,
+    "reviewsCount": 200
+  },
+  {
+    "name": "REDTAPE New Arrival T-Shirt",
+    "description": "Stylish new arrival t-shirt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "T-Shirts",
+    "gender": "Men",
+    "price": 1499,
+    "discountPrice": 1190,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+87+View+1",
+      "https://placehold.co/810x1000?text=Product+87+View+2",
+      "https://placehold.co/810x1000?text=Product+87+View+3",
+      "https://placehold.co/810x1000?text=Product+87+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Premium Cotton",
+    "stock": 57,
+    "rating": 4.3,
+    "reviewsCount": 126
+  },
+  {
+    "name": "REDTAPE New Arrival Belt",
+    "description": "Stylish new arrival belt designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Belts",
+    "gender": "Men",
+    "price": 1299,
+    "discountPrice": 970,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+88+View+1",
+      "https://placehold.co/810x1000?text=Product+88+View+2",
+      "https://placehold.co/810x1000?text=Product+88+View+3",
+      "https://placehold.co/810x1000?text=Product+88+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Green",
+      "White"
+    ],
+    "material": "Premium Cotton",
+    "stock": 17,
+    "rating": 4.7,
+    "reviewsCount": 215
+  },
+  {
+    "name": "REDTAPE New Arrival Socks",
+    "description": "Stylish new arrival socks designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Socks",
+    "gender": "Men",
+    "price": 2199,
+    "discountPrice": 1420,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+89+View+1",
+      "https://placehold.co/810x1000?text=Product+89+View+2",
+      "https://placehold.co/810x1000?text=Product+89+View+3",
+      "https://placehold.co/810x1000?text=Product+89+View+4"
+    ],
+    "sizes": [
+      "S",
+      "M",
+      "L",
+      "XL",
+      "XXL"
+    ],
+    "colors": [
+      "Black",
+      "White"
+    ],
+    "material": "Premium Cotton",
+    "stock": 60,
+    "rating": 4.1,
+    "reviewsCount": 119
+  },
+  {
+    "name": "REDTAPE New Arrival Loafers",
+    "description": "Stylish new arrival loafers designed for comfortable everyday wear.",
+    "brand": "REDTAPE",
+    "category": "New Arrival",
+    "subCategory": "Loafers",
+    "gender": "Men",
+    "price": 2799,
+    "discountPrice": 1810,
+    "images": [
+      "https://placehold.co/810x1000?text=Product+90+View+1",
+      "https://placehold.co/810x1000?text=Product+90+View+2",
+      "https://placehold.co/810x1000?text=Product+90+View+3",
+      "https://placehold.co/810x1000?text=Product+90+View+4"
+    ],
+    "sizes": [
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "colors": [
+      "Red",
+      "Black"
+    ],
+    "material": "Mesh",
+    "stock": 43,
+    "rating": 4.1,
+    "reviewsCount": 144
+  }
+]
