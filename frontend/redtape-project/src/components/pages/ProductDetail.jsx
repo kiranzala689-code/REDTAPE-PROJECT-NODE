@@ -1,8 +1,4 @@
-import React, {
-    useCallback,
-    useEffect,
-    useState
-} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
     Link,
@@ -11,50 +7,46 @@ import {
 } from "react-router-dom";
 import "./ProductDetail.css";
 
+const categoryMap = {
+    footwear: "Footwear",
+    shoes: "Footwear",
+    pent: "Pants",
+    pants: "Pants",
+    pents: "Pants",
+    shirt: "Shirts",
+    shirts: "Shirts",
+    womens: "Womens",
+    women: "Womens",
+    accessories: "Accessories",
+    "new-arrival": "New Arrival"
+};
+
+const getBackendCategory = (value) => {
+    return (
+        categoryMap[
+            String(value || "").toLowerCase()
+        ] || value
+    );
+};
+
+const API_URL = "http://localhost:5000";
+
 function ProductDetail() {
     const { category, id } = useParams();
     const navigate = useNavigate();
 
     const [product, setProduct] = useState(null);
     const [recommendedProducts, setRecommendedProducts] = useState([]);
-
     const [selectedImage, setSelectedImage] = useState("");
     const [selectedSize, setSelectedSize] = useState("");
     const [selectedColor, setSelectedColor] = useState("");
-
     const [quantity, setQuantity] = useState(1);
-
     const [loading, setLoading] = useState(true);
     const [addingCart, setAddingCart] = useState(false);
     const [buyingNow, setBuyingNow] = useState(false);
 
-    const categoryMap = {
-        footwear: "Footwear",
-        shoes: "Footwear",
-        pent: "Pants",
-        pants: "Pants",
-        pents: "Pants",
-        shirt: "Shirts",
-        shirts: "Shirts",
-        womens: "Womens",
-        women: "Womens",
-        accessories: "Accessories",
-        "new-arrival": "New Arrival"
-    };
-
-    const getBackendCategory = useCallback((value) => {
-        return (
-            categoryMap[
-                String(value || "").toLowerCase()
-            ] || value
-        );
-    }, []);
-
     const getSizeValue = (size) => {
-        if (
-            typeof size === "object" &&
-            size !== null
-        ) {
+        if (typeof size === "object" && size !== null) {
             return String(
                 size.size ||
                 size.name ||
@@ -82,10 +74,7 @@ function ProductDetail() {
         const original = getOriginalPrice(item);
         const sale = getPrice(item);
 
-        if (
-            original > sale &&
-            original > 0
-        ) {
+        if (original > sale && original > 0) {
             return Math.round(
                 ((original - sale) / original) * 100
             );
@@ -110,10 +99,7 @@ function ProductDetail() {
                     .toString(36)
                     .substring(2, 10);
 
-            localStorage.setItem(
-                "guestId",
-                guestId
-            );
+            localStorage.setItem("guestId", guestId);
         }
 
         return guestId;
@@ -156,10 +142,7 @@ function ProductDetail() {
         const token = getToken();
         const userId = getUserIdFromToken();
 
-        if (
-            token &&
-            userId
-        ) {
+        if (token && userId) {
             return {
                 userId,
                 guestId: null
@@ -184,13 +167,13 @@ function ProductDetail() {
                         getBackendCategory(category);
 
                     response = await axios.get(
-                        `http://localhost:5000/api/products/${encodeURIComponent(
+                        `${API_URL}/api/products/${encodeURIComponent(
                             backendCategory
                         )}/${id}`
                     );
                 } else {
                     response = await axios.get(
-                        `http://localhost:5000/api/products/single/${id}`
+                        `${API_URL}/api/products/single/${id}`
                     );
                 }
 
@@ -209,19 +192,15 @@ function ProductDetail() {
 
                 setProduct(data || null);
 
-                const images =
-                    Array.isArray(data?.images)
-                        ? data.images
-                        : [];
+                const images = Array.isArray(data?.images)
+                    ? data.images
+                    : [];
 
-                setSelectedImage(
-                    images[0] || ""
-                );
+                setSelectedImage(images[0] || "");
 
-                const sizes =
-                    Array.isArray(data?.sizes)
-                        ? data.sizes
-                        : [];
+                const sizes = Array.isArray(data?.sizes)
+                    ? data.sizes
+                    : [];
 
                 setSelectedSize(
                     sizes.length
@@ -229,10 +208,9 @@ function ProductDetail() {
                         : ""
                 );
 
-                const colors =
-                    Array.isArray(data?.colors)
-                        ? data.colors
-                        : [];
+                const colors = Array.isArray(data?.colors)
+                    ? data.colors
+                    : [];
 
                 setSelectedColor(
                     colors.length
@@ -254,17 +232,10 @@ function ProductDetail() {
             }
         };
 
-        if (
-            category &&
-            id
-        ) {
+        if (category && id) {
             getProduct();
         }
-    }, [
-        category,
-        id,
-        getBackendCategory
-    ]);
+    }, [category, id]);
 
     useEffect(() => {
         const getRecommended = async () => {
@@ -278,12 +249,11 @@ function ProductDetail() {
                         product.category
                     );
 
-                const response =
-                    await axios.get(
-                        `http://localhost:5000/api/products/${encodeURIComponent(
-                            backendCategory
-                        )}`
-                    );
+                const response = await axios.get(
+                    `${API_URL}/api/products/${encodeURIComponent(
+                        backendCategory
+                    )}`
+                );
 
                 const data =
                     response.data?.products ||
@@ -299,12 +269,10 @@ function ProductDetail() {
                 const currentId =
                     String(product._id);
 
-                const filtered =
-                    data.filter(
-                        (item) =>
-                            String(item._id) !==
-                            currentId
-                    );
+                const filtered = data.filter(
+                    (item) =>
+                        String(item._id) !== currentId
+                );
 
                 setRecommendedProducts(
                     filtered.slice(0, 8)
@@ -321,10 +289,7 @@ function ProductDetail() {
         };
 
         getRecommended();
-    }, [
-        product,
-        getBackendCategory
-    ]);
+    }, [product]);
 
     const increaseQuantity = () => {
         const stock = Number(
@@ -333,8 +298,7 @@ function ProductDetail() {
 
         if (quantity < stock) {
             setQuantity(
-                (previous) =>
-                    previous + 1
+                (previous) => previous + 1
             );
         }
     };
@@ -342,8 +306,7 @@ function ProductDetail() {
     const decreaseQuantity = () => {
         if (quantity > 1) {
             setQuantity(
-                (previous) =>
-                    previous - 1
+                (previous) => previous - 1
             );
         }
     };
@@ -358,10 +321,7 @@ function ProductDetail() {
         );
 
         if (stock <= 0) {
-            alert(
-                "Product is out of stock"
-            );
-
+            alert("Product is out of stock");
             return false;
         }
 
@@ -369,10 +329,7 @@ function ProductDetail() {
             product.sizes?.length > 0 &&
             !selectedSize
         ) {
-            alert(
-                "Please select size"
-            );
-
+            alert("Please select size");
             return false;
         }
 
@@ -380,18 +337,12 @@ function ProductDetail() {
             product.colors?.length > 0 &&
             !selectedColor
         ) {
-            alert(
-                "Please select color"
-            );
-
+            alert("Please select color");
             return false;
         }
 
         if (quantity > stock) {
-            alert(
-                "Not enough stock"
-            );
-
+            alert("Not enough stock");
             return false;
         }
 
@@ -414,12 +365,8 @@ function ProductDetail() {
             const cartData = {
                 product: product._id,
                 quantity: Number(quantity),
-                size: String(
-                    selectedSize || ""
-                ),
-                color: String(
-                    selectedColor || ""
-                )
+                size: String(selectedSize || ""),
+                color: String(selectedColor || "")
             };
 
             if (userId) {
@@ -439,7 +386,7 @@ function ProductDetail() {
                 : {};
 
             await axios.post(
-                "http://localhost:5000/api/cart",
+                `${API_URL}/api/cart`,
                 cartData,
                 config
             );
@@ -473,9 +420,7 @@ function ProductDetail() {
                 await addProductToCart();
 
             if (success) {
-                alert(
-                    "Product added to cart"
-                );
+                alert("Product added to cart");
             }
         } finally {
             setAddingCart(false);
@@ -508,15 +453,12 @@ function ProductDetail() {
             Shirts: "shirt",
             Womens: "womens",
             Accessories: "accessories",
-            "New Arrival":
-                "new-arrival"
+            "New Arrival": "new-arrival"
         };
 
         const routeCategory =
             routeMap[item.category] ||
-            String(
-                item.category
-            ).toLowerCase();
+            String(item.category).toLowerCase();
 
         navigate(
             `/${routeCategory}/${item._id}`
@@ -541,14 +483,10 @@ function ProductDetail() {
                     window.location.href
                 );
 
-                alert(
-                    "Product link copied"
-                );
+                alert("Product link copied");
             }
         } catch (error) {
-            console.log(
-                error.message
-            );
+            console.log(error.message);
         }
     };
 
@@ -556,16 +494,13 @@ function ProductDetail() {
         return (
             <div className="container py-5">
                 <div className="text-center py-5">
-
                     <div
                         className="spinner-border"
                         role="status"
                     />
-
                     <p className="mt-3 text-muted">
                         Loading product...
                     </p>
-
                 </div>
             </div>
         );
@@ -575,7 +510,6 @@ function ProductDetail() {
         return (
             <div className="container py-5">
                 <div className="text-center py-5">
-
                     <h3 className="fw-bold">
                         PRODUCT NOT FOUND
                     </h3>
@@ -590,7 +524,6 @@ function ProductDetail() {
                     >
                         CONTINUE SHOPPING
                     </Link>
-
                 </div>
             </div>
         );
@@ -638,11 +571,9 @@ function ProductDetail() {
 
     return (
         <div className="product-detail-page">
-
             <div className="container-fluid px-3 px-lg-4">
 
                 <div className="breadcrumb-text">
-
                     <Link to="/">
                         HOME
                     </Link>
@@ -664,7 +595,6 @@ function ProductDetail() {
                     <span>
                         {productName}
                     </span>
-
                 </div>
 
                 <div className="row product-detail-row g-4 g-lg-5">
@@ -676,16 +606,12 @@ function ProductDetail() {
                             <div className="thumbnail-list">
 
                                 {images.map(
-                                    (
-                                        image,
-                                        index
-                                    ) => (
+                                    (image, index) => (
                                         <button
                                             type="button"
                                             key={`${image}-${index}`}
                                             className={
-                                                selectedImage ===
-                                                image
+                                                selectedImage === image
                                                     ? "thumbnail active-thumbnail"
                                                     : "thumbnail"
                                             }
@@ -709,12 +635,8 @@ function ProductDetail() {
 
                                 {selectedImage && (
                                     <img
-                                        src={
-                                            selectedImage
-                                        }
-                                        alt={
-                                            productName
-                                        }
+                                        src={selectedImage}
+                                        alt={productName}
                                     />
                                 )}
 
@@ -777,8 +699,7 @@ function ProductDetail() {
                                     )}
                                 </span>
 
-                                {originalPrice >
-                                    price && (
+                                {originalPrice > price && (
                                     <span className="detail-original-price">
                                         ₹
                                         {originalPrice.toLocaleString(
@@ -822,15 +743,11 @@ function ProductDetail() {
                                         <span>
                                             Size:
                                             <strong>
-                                                {
-                                                    selectedSize
-                                                }
+                                                {selectedSize}
                                             </strong>
                                         </span>
 
-                                        <button
-                                            type="button"
-                                        >
+                                        <button type="button">
                                             Size Chart
                                         </button>
 
@@ -839,11 +756,7 @@ function ProductDetail() {
                                     <div className="size-list">
 
                                         {sizes.map(
-                                            (
-                                                size,
-                                                index
-                                            ) => {
-
+                                            (size, index) => {
                                                 const value =
                                                     getSizeValue(
                                                         size
@@ -856,8 +769,7 @@ function ProductDetail() {
                                                         className={
                                                             String(
                                                                 selectedSize
-                                                            ) ===
-                                                            value
+                                                            ) === value
                                                                 ? "size-btn selected-size"
                                                                 : "size-btn"
                                                         }
@@ -884,9 +796,7 @@ function ProductDetail() {
                                     <p>
                                         Color:
                                         <strong>
-                                            {
-                                                selectedColor
-                                            }
+                                            {selectedColor}
                                         </strong>
                                     </p>
 
@@ -909,9 +819,7 @@ function ProductDetail() {
                                                     }
                                                     onClick={() =>
                                                         setSelectedColor(
-                                                            String(
-                                                                color
-                                                            )
+                                                            String(color)
                                                         )
                                                     }
                                                 >
@@ -935,8 +843,7 @@ function ProductDetail() {
                                             decreaseQuantity
                                         }
                                         disabled={
-                                            quantity <=
-                                            1
+                                            quantity <= 1
                                         }
                                     >
                                         −
@@ -952,8 +859,7 @@ function ProductDetail() {
                                             increaseQuantity
                                         }
                                         disabled={
-                                            quantity >=
-                                            stock
+                                            quantity >= stock
                                         }
                                     >
                                         +
@@ -969,9 +875,7 @@ function ProductDetail() {
                                         addingCart ||
                                         buyingNow
                                     }
-                                    onClick={
-                                        addToCart
-                                    }
+                                    onClick={addToCart}
                                 >
                                     {addingCart
                                         ? "ADDING..."
@@ -1037,27 +941,21 @@ function ProductDetail() {
 
                                 <button
                                     type="button"
-                                    onClick={
-                                        shareProduct
-                                    }
+                                    onClick={shareProduct}
                                 >
                                     f
                                 </button>
 
                                 <button
                                     type="button"
-                                    onClick={
-                                        shareProduct
-                                    }
+                                    onClick={shareProduct}
                                 >
                                     X
                                 </button>
 
                                 <button
                                     type="button"
-                                    onClick={
-                                        shareProduct
-                                    }
+                                    onClick={shareProduct}
                                 >
                                     p
                                 </button>
@@ -1183,16 +1081,13 @@ function ProductDetail() {
                                         getPrice(item);
 
                                     const itemOriginalPrice =
-                                        getOriginalPrice(
-                                            item
-                                        );
+                                        getOriginalPrice(item);
 
                                     const itemDiscount =
                                         getDiscount(item);
 
                                     const itemImage =
-                                        item.images?.[0] ||
-                                        "";
+                                        item.images?.[0] || "";
 
                                     return (
                                         <div
@@ -1209,12 +1104,8 @@ function ProductDetail() {
 
                                                 {itemImage ? (
                                                     <img
-                                                        src={
-                                                            itemImage
-                                                        }
-                                                        alt={
-                                                            item.name
-                                                        }
+                                                        src={itemImage}
+                                                        alt={item.name}
                                                     />
                                                 ) : (
                                                     <div className="no-recommended-image">
@@ -1222,13 +1113,9 @@ function ProductDetail() {
                                                     </div>
                                                 )}
 
-                                                {itemDiscount >
-                                                    0 && (
+                                                {itemDiscount > 0 && (
                                                     <span className="recommended-discount">
-                                                        {
-                                                            itemDiscount
-                                                        }
-                                                        % OFF
+                                                        {itemDiscount}% OFF
                                                     </span>
                                                 )}
 
