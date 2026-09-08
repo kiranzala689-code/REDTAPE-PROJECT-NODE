@@ -1,5 +1,4 @@
-
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Checkout.css";
@@ -29,11 +28,11 @@ function Checkout() {
         addressType: "Home"
     });
 
-    const getToken = () => {
+    const getToken = useCallback(() => {
         return localStorage.getItem("token");
-    };
+    }, []);
 
-    const getUserId = () => {
+    const getUserId = useCallback(() => {
         const token = getToken();
 
         if (!token) {
@@ -57,18 +56,13 @@ function Checkout() {
 
             return payload.id || payload._id || null;
         } catch (error) {
-            console.log(
-                "TOKEN ERROR:",
-                error.message
-            );
-
+            console.log("TOKEN ERROR:", error.message);
             return null;
         }
-    };
+    }, [getToken]);
 
-    const getGuestId = () => {
-        let guestId =
-            localStorage.getItem("guestId");
+    const getGuestId = useCallback(() => {
+        let guestId = localStorage.getItem("guestId");
 
         if (!guestId) {
             guestId =
@@ -79,16 +73,13 @@ function Checkout() {
                     .toString(36)
                     .substring(2, 10);
 
-            localStorage.setItem(
-                "guestId",
-                guestId
-            );
+            localStorage.setItem("guestId", guestId);
         }
 
         return guestId;
-    };
+    }, []);
 
-    const getAuthConfig = () => {
+    const getAuthConfig = useCallback(() => {
         const token = getToken();
 
         if (!token) {
@@ -97,24 +88,22 @@ function Checkout() {
 
         return {
             headers: {
-                Authorization:
-                    `Bearer ${token}`
+                Authorization: `Bearer ${token}`
             }
         };
-    };
+    }, [getToken]);
 
-    const getCartConfig = () => {
+    const getCartConfig = useCallback(() => {
         const token = getToken();
         const userId = getUserId();
 
         if (token && userId) {
             return {
                 headers: {
-                    Authorization:
-                        `Bearer ${token}`
+                    Authorization: `Bearer ${token}`
                 },
                 params: {
-                    userId: userId
+                    userId
                 }
             };
         }
@@ -124,35 +113,29 @@ function Checkout() {
                 guestId: getGuestId()
             }
         };
-    };
+    }, [getToken, getUserId, getGuestId]);
 
-    const getCart = async () => {
+    const getCart = useCallback(async () => {
         try {
-            const token = getToken();
             const userId = getUserId();
 
             let guestId = null;
 
             if (!userId) {
                 guestId =
-                    localStorage.getItem(
-                        "guestId"
-                    ) || getGuestId();
+                    localStorage.getItem("guestId") ||
+                    getGuestId();
             }
 
-            console.log(
-                "CHECKOUT OWNER:",
-                {
-                    userId,
-                    guestId
-                }
-            );
+            console.log("CHECKOUT OWNER:", {
+                userId,
+                guestId
+            });
 
-            const response =
-                await axios.get(
-                    "http://localhost:5000/api/cart",
-                    getCartConfig()
-                );
+            const response = await axios.get(
+                "http://localhost:5000/api/cart",
+                getCartConfig()
+            );
 
             console.log(
                 "CHECKOUT CART:",
@@ -175,13 +158,8 @@ function Checkout() {
                 error.message
             );
 
-            if (
-                error.response?.status ===
-                401
-            ) {
-                localStorage.removeItem(
-                    "token"
-                );
+            if (error.response?.status === 401) {
+                localStorage.removeItem("token");
 
                 alert(
                     "Session expired. Please login again."
@@ -196,9 +174,14 @@ function Checkout() {
                 items: []
             });
         }
-    };
+    }, [
+        getUserId,
+        getGuestId,
+        getCartConfig,
+        navigate
+    ]);
 
-    const getAddresses = async () => {
+    const getAddresses = useCallback(async () => {
         try {
             const token = getToken();
             const userId = getUserId();
@@ -208,11 +191,10 @@ function Checkout() {
                 return;
             }
 
-            const response =
-                await axios.get(
-                    "http://localhost:5000/api/address",
-                    getAuthConfig()
-                );
+            const response = await axios.get(
+                "http://localhost:5000/api/address",
+                getAuthConfig()
+            );
 
             console.log(
                 "ADDRESS RESPONSE:",
@@ -227,9 +209,7 @@ function Checkout() {
             setAddresses(list);
 
             if (list.length > 0) {
-                setSelectedAddress(
-                    list[0]._id
-                );
+                setSelectedAddress(list[0]._id);
             }
         } catch (error) {
             console.log(
@@ -238,13 +218,8 @@ function Checkout() {
                 error.message
             );
 
-            if (
-                error.response?.status ===
-                401
-            ) {
-                localStorage.removeItem(
-                    "token"
-                );
+            if (error.response?.status === 401) {
+                localStorage.removeItem("token");
 
                 alert(
                     "Session expired. Please login again."
@@ -257,7 +232,12 @@ function Checkout() {
 
             setAddresses([]);
         }
-    };
+    }, [
+        getToken,
+        getUserId,
+        getAuthConfig,
+        navigate
+    ]);
 
     useEffect(() => {
         const loadPage = async () => {
@@ -278,7 +258,12 @@ function Checkout() {
         };
 
         loadPage();
-    }, []);
+    }, [
+        getToken,
+        getCart,
+        getAddresses,
+        navigate
+    ]);
 
     useEffect(() => {
         const refreshCart = () => {
@@ -296,7 +281,7 @@ function Checkout() {
                 refreshCart
             );
         };
-    }, []);
+    }, [getCart]);
 
     const getPrice = product => {
         return Number(
@@ -310,9 +295,7 @@ function Checkout() {
         cart.items?.reduce(
             (total, item) =>
                 total +
-                Number(
-                    item.quantity || 0
-                ),
+                Number(item.quantity || 0),
             0
         ) || 0;
 
@@ -326,9 +309,7 @@ function Checkout() {
                     getPrice(product);
 
                 const quantity =
-                    Number(
-                        item.quantity || 0
-                    );
+                    Number(item.quantity || 0);
 
                 return (
                     total +
@@ -357,12 +338,10 @@ function Checkout() {
             value
         } = event.target;
 
-        setAddressForm(
-            previous => ({
-                ...previous,
-                [name]: value
-            })
-        );
+        setAddressForm(previous => ({
+            ...previous,
+            [name]: value
+        }));
     };
 
     const saveAddress = async event => {
@@ -372,12 +351,8 @@ function Checkout() {
         const userId = getUserId();
 
         if (!token || !userId) {
-            alert(
-                "Please login first"
-            );
-
+            alert("Please login first");
             navigate("/login");
-
             return;
         }
 
@@ -401,12 +376,10 @@ function Checkout() {
                 response.data?.data;
 
             if (newAddress) {
-                setAddresses(
-                    previous => [
-                        newAddress,
-                        ...previous
-                    ]
-                );
+                setAddresses(previous => [
+                    newAddress,
+                    ...previous
+                ]);
 
                 setSelectedAddress(
                     newAddress._id
@@ -433,13 +406,8 @@ function Checkout() {
                 error.message
             );
 
-            if (
-                error.response?.status ===
-                401
-            ) {
-                localStorage.removeItem(
-                    "token"
-                );
+            if (error.response?.status === 401) {
+                localStorage.removeItem("token");
 
                 alert(
                     "Session expired. Please login again."
@@ -470,12 +438,8 @@ function Checkout() {
             );
 
             if (!token || !userId) {
-                alert(
-                    "Please login first"
-                );
-
+                alert("Please login first");
                 navigate("/login");
-
                 return;
             }
 
@@ -483,7 +447,6 @@ function Checkout() {
                 alert(
                     "Please select delivery address"
                 );
-
                 return;
             }
 
@@ -492,20 +455,15 @@ function Checkout() {
                 cart.items.length === 0
             ) {
                 alert("Cart is empty");
-
                 await getCart();
-
                 return;
             }
 
             setPlacingOrder(true);
 
             const orderData = {
-                addressId:
-                    selectedAddress,
-
-                paymentMethod:
-                    paymentMethod
+                addressId: selectedAddress,
+                paymentMethod
             };
 
             console.log(
@@ -528,25 +486,17 @@ function Checkout() {
             const order =
                 response.data?.order;
 
-            if (
-                !order ||
-                !order._id
-            ) {
+            if (!order || !order._id) {
                 alert(
                     "Order create nahi hua"
                 );
-
                 return;
             }
 
-            if (
-                paymentMethod ===
-                "ONLINE"
-            ) {
+            if (paymentMethod === "ONLINE") {
                 navigate(
                     `/payment/${order._id}`
                 );
-
                 return;
             }
 
@@ -564,13 +514,8 @@ function Checkout() {
                 error.message
             );
 
-            if (
-                error.response?.status ===
-                401
-            ) {
-                localStorage.removeItem(
-                    "token"
-                );
+            if (error.response?.status === 401) {
+                localStorage.removeItem("token");
 
                 alert(
                     "Session expired. Please login again."
@@ -593,9 +538,7 @@ function Checkout() {
     if (loading) {
         return (
             <div className="container py-5">
-
                 <div className="text-center py-5">
-
                     <div
                         className="spinner-border"
                         role="status"
@@ -604,9 +547,7 @@ function Checkout() {
                     <p className="mt-3">
                         Loading checkout...
                     </p>
-
                 </div>
-
             </div>
         );
     }
@@ -617,9 +558,7 @@ function Checkout() {
     ) {
         return (
             <div className="container py-5">
-
                 <div className="text-center py-5">
-
                     <div className="display-3 mb-3">
                         🛒
                     </div>
@@ -639,20 +578,15 @@ function Checkout() {
                     >
                         BACK TO CART
                     </Link>
-
                 </div>
-
             </div>
         );
     }
 
     return (
         <div className="checkout-page bg-white">
-
             <div className="container py-4 py-lg-5">
-
                 <div className="d-flex justify-content-between align-items-center border-bottom pb-4 mb-5">
-
                     <Link
                         to="/cart-page"
                         className="text-dark text-decoration-none fw-semibold"
@@ -667,17 +601,12 @@ function Checkout() {
                     <span className="small text-muted">
                         {totalItems} ITEMS
                     </span>
-
                 </div>
 
                 <div className="row g-5">
-
                     <div className="col-lg-7">
-
                         <div className="mb-5">
-
                             <div className="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
-
                                 <h4 className="fw-bold mb-0">
                                     01. DELIVERY ADDRESS
                                 </h4>
@@ -693,12 +622,10 @@ function Checkout() {
                                 >
                                     + ADD ADDRESS
                                 </button>
-
                             </div>
 
                             {!getUserId() ? (
                                 <div className="border p-4 text-center">
-
                                     <p className="text-muted mb-3">
                                         Please login to add
                                         delivery address.
@@ -715,12 +642,9 @@ function Checkout() {
                                     >
                                         LOGIN
                                     </button>
-
                                 </div>
                             ) : addresses.length > 0 ? (
-
                                 <div className="row g-3">
-
                                     {addresses.map(
                                         address => (
                                             <div
@@ -729,7 +653,6 @@ function Checkout() {
                                                     address._id
                                                 }
                                             >
-
                                                 <label
                                                     className={
                                                         selectedAddress ===
@@ -742,11 +665,8 @@ function Checkout() {
                                                             "pointer"
                                                     }}
                                                 >
-
                                                     <div className="d-flex justify-content-between mb-3">
-
                                                         <div className="d-flex gap-2">
-
                                                             <input
                                                                 type="radio"
                                                                 name="address"
@@ -766,7 +686,6 @@ function Checkout() {
                                                                     address.name
                                                                 }
                                                             </strong>
-
                                                         </div>
 
                                                         <span className="badge bg-dark rounded-0">
@@ -775,7 +694,6 @@ function Checkout() {
                                                                 "HOME"
                                                             }
                                                         </span>
-
                                                     </div>
 
                                                     <p className="small mb-2">
@@ -791,8 +709,8 @@ function Checkout() {
                                                         ,{" "}
                                                         {
                                                             address.state
-                                                        }
-                                                        {" - "}
+                                                        }{" "}
+                                                        -{" "}
                                                         {
                                                             address.pincode
                                                         }
@@ -804,19 +722,13 @@ function Checkout() {
                                                             address.phone
                                                         }
                                                     </p>
-
                                                 </label>
-
                                             </div>
                                         )
                                     )}
-
                                 </div>
-
                             ) : (
-
                                 <div className="border p-4 text-center">
-
                                     <p className="text-muted">
                                         No saved address found.
                                     </p>
@@ -832,28 +744,23 @@ function Checkout() {
                                     >
                                         ADD NEW ADDRESS
                                     </button>
-
                                 </div>
                             )}
 
                             {showAddressForm &&
                                 getUserId() && (
-
                                     <form
                                         className="border p-4 mt-4"
                                         onSubmit={
                                             saveAddress
                                         }
                                     >
-
                                         <h5 className="fw-bold mb-4">
                                             ADD NEW ADDRESS
                                         </h5>
 
                                         <div className="row g-3">
-
                                             <div className="col-md-6">
-
                                                 <label className="form-label">
                                                     Full Name
                                                 </label>
@@ -870,11 +777,9 @@ function Checkout() {
                                                     }
                                                     required
                                                 />
-
                                             </div>
 
                                             <div className="col-md-6">
-
                                                 <label className="form-label">
                                                     Phone
                                                 </label>
@@ -893,11 +798,9 @@ function Checkout() {
                                                     pattern="[0-9]{10}"
                                                     required
                                                 />
-
                                             </div>
 
                                             <div className="col-12">
-
                                                 <label className="form-label">
                                                     Address
                                                 </label>
@@ -914,11 +817,9 @@ function Checkout() {
                                                     }
                                                     required
                                                 />
-
                                             </div>
 
                                             <div className="col-md-4">
-
                                                 <label className="form-label">
                                                     City
                                                 </label>
@@ -935,11 +836,9 @@ function Checkout() {
                                                     }
                                                     required
                                                 />
-
                                             </div>
 
                                             <div className="col-md-4">
-
                                                 <label className="form-label">
                                                     State
                                                 </label>
@@ -956,11 +855,9 @@ function Checkout() {
                                                     }
                                                     required
                                                 />
-
                                             </div>
 
                                             <div className="col-md-4">
-
                                                 <label className="form-label">
                                                     Pincode
                                                 </label>
@@ -979,11 +876,9 @@ function Checkout() {
                                                     pattern="[0-9]{6}"
                                                     required
                                                 />
-
                                             </div>
 
                                             <div className="col-md-6">
-
                                                 <label className="form-label">
                                                     Address Type
                                                 </label>
@@ -998,7 +893,6 @@ function Checkout() {
                                                         handleAddressChange
                                                     }
                                                 >
-
                                                     <option value="Home">
                                                         Home
                                                     </option>
@@ -1010,13 +904,10 @@ function Checkout() {
                                                     <option value="Other">
                                                         Other
                                                     </option>
-
                                                 </select>
-
                                             </div>
 
                                             <div className="col-12">
-
                                                 <button
                                                     type="submit"
                                                     className="btn btn-dark rounded-0 px-4"
@@ -1040,24 +931,17 @@ function Checkout() {
                                                 >
                                                     CANCEL
                                                 </button>
-
                                             </div>
-
                                         </div>
-
                                     </form>
                                 )}
-
                         </div>
 
                         <div>
-
                             <div className="border-bottom pb-3 mb-4">
-
                                 <h4 className="fw-bold">
                                     02. PAYMENT METHOD
                                 </h4>
-
                             </div>
 
                             <label
@@ -1071,7 +955,6 @@ function Checkout() {
                                     cursor: "pointer"
                                 }}
                             >
-
                                 <input
                                     type="radio"
                                     name="payment"
@@ -1088,7 +971,6 @@ function Checkout() {
                                 />
 
                                 <div>
-
                                     <strong>
                                         CASH ON DELIVERY
                                     </strong>
@@ -1097,9 +979,7 @@ function Checkout() {
                                         Pay when your order
                                         is delivered.
                                     </p>
-
                                 </div>
-
                             </label>
 
                             <label
@@ -1113,7 +993,6 @@ function Checkout() {
                                     cursor: "pointer"
                                 }}
                             >
-
                                 <input
                                     type="radio"
                                     name="payment"
@@ -1130,7 +1009,6 @@ function Checkout() {
                                 />
 
                                 <div>
-
                                     <strong>
                                         ONLINE PAYMENT
                                     </strong>
@@ -1141,26 +1019,19 @@ function Checkout() {
                                         or Wallet through
                                         Razorpay.
                                     </p>
-
                                 </div>
-
                             </label>
-
                         </div>
-
                     </div>
 
                     <div className="col-lg-5">
-
                         <div
                             className="border p-4 position-sticky"
                             style={{
                                 top: "20px"
                             }}
                         >
-
                             <div className="d-flex justify-content-between border-bottom pb-3 mb-4">
-
                                 <h4 className="fw-bold mb-0">
                                     ORDER SUMMARY
                                 </h4>
@@ -1168,7 +1039,6 @@ function Checkout() {
                                 <span className="small text-muted">
                                     {totalItems} ITEMS
                                 </span>
-
                             </div>
 
                             {cart.items.map(
@@ -1176,7 +1046,6 @@ function Checkout() {
                                     item,
                                     index
                                 ) => {
-
                                     const product =
                                         item.product ||
                                         {};
@@ -1197,7 +1066,6 @@ function Checkout() {
                                         quantity;
 
                                     return (
-
                                         <div
                                             className="d-flex gap-3 mb-4"
                                             key={
@@ -1205,11 +1073,8 @@ function Checkout() {
                                                 index
                                             }
                                         >
-
                                             <Link
-                                                to={
-                                                    `/product/${product._id}`
-                                                }
+                                                to={`/product/${product._id}`}
                                                 className="position-relative bg-light flex-shrink-0"
                                                 style={{
                                                     width:
@@ -1218,9 +1083,7 @@ function Checkout() {
                                                         "105px"
                                                 }}
                                             >
-
                                                 {product.images?.[0] ? (
-
                                                     <img
                                                         src={
                                                             product.images[0]
@@ -1234,9 +1097,7 @@ function Checkout() {
                                                                 "cover"
                                                         }}
                                                     />
-
                                                 ) : (
-
                                                     <div className="w-100 h-100 d-flex align-items-center justify-content-center small text-muted">
                                                         No Image
                                                     </div>
@@ -1245,15 +1106,11 @@ function Checkout() {
                                                 <span className="position-absolute top-0 end-0 bg-dark text-white px-2 py-1 small">
                                                     {quantity}
                                                 </span>
-
                                             </Link>
 
                                             <div className="flex-grow-1">
-
                                                 <Link
-                                                    to={
-                                                        `/product/${product._id}`
-                                                    }
+                                                    to={`/product/${product._id}`}
                                                     className="text-dark text-decoration-none fw-semibold d-block"
                                                 >
                                                     {
@@ -1284,9 +1141,7 @@ function Checkout() {
                                                         "en-IN"
                                                     )}
                                                 </strong>
-
                                             </div>
-
                                         </div>
                                     );
                                 }
@@ -1295,7 +1150,6 @@ function Checkout() {
                             <hr />
 
                             <div className="d-flex justify-content-between mb-3">
-
                                 <span>
                                     Subtotal
                                 </span>
@@ -1306,11 +1160,9 @@ function Checkout() {
                                         "en-IN"
                                     )}
                                 </strong>
-
                             </div>
 
                             <div className="d-flex justify-content-between mb-3">
-
                                 <span>
                                     Shipping
                                 </span>
@@ -1321,11 +1173,9 @@ function Checkout() {
                                         ? "FREE"
                                         : `₹${shippingCharge}`}
                                 </strong>
-
                             </div>
 
                             <div className="d-flex justify-content-between mb-3">
-
                                 <span>
                                     Discount
                                 </span>
@@ -1333,14 +1183,11 @@ function Checkout() {
                                 <strong>
                                     ₹0
                                 </strong>
-
                             </div>
 
                             {subtotal < 999 &&
                                 subtotal > 0 && (
-
                                     <div className="alert alert-light border rounded-0 small">
-
                                         Add ₹
                                         {(
                                             999 -
@@ -1350,14 +1197,12 @@ function Checkout() {
                                         )}{" "}
                                         more for FREE
                                         shipping.
-
                                     </div>
                                 )}
 
                             <hr />
 
                             <div className="d-flex justify-content-between align-items-center mb-4">
-
                                 <strong className="fs-5">
                                     TOTAL
                                 </strong>
@@ -1368,7 +1213,6 @@ function Checkout() {
                                         "en-IN"
                                     )}
                                 </strong>
-
                             </div>
 
                             <button
@@ -1392,15 +1236,12 @@ function Checkout() {
                             </button>
 
                             <div className="border-top mt-4 pt-4">
-
                                 <div className="d-flex gap-3">
-
                                     <span>
                                         🔒
                                     </span>
 
                                     <div>
-
                                         <strong className="small">
                                             SECURE CHECKOUT
                                         </strong>
@@ -1411,11 +1252,8 @@ function Checkout() {
                                             information is
                                             protected.
                                         </p>
-
                                     </div>
-
                                 </div>
-
                             </div>
 
                             <Link
@@ -1424,18 +1262,12 @@ function Checkout() {
                             >
                                 ← BACK TO CART
                             </Link>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
     );
 }
 
 export default Checkout;
-

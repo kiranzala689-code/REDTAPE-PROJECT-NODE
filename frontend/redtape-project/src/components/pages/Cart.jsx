@@ -13,22 +13,6 @@ function Cart({ isOpen, onClose }) {
   const [loading, setLoading] = useState(false);
   const [updating, setUpdating] = useState(false);
 
-  const getGuestId = () => {
-    let guestId = localStorage.getItem("guestId");
-
-    if (!guestId) {
-      guestId =
-        "guest_" +
-        Date.now() +
-        "_" +
-        Math.random().toString(36).substring(2, 10);
-
-      localStorage.setItem("guestId", guestId);
-    }
-
-    return guestId;
-  };
-
   const fetchCart = async () => {
     try {
       setLoading(true);
@@ -80,16 +64,10 @@ function Cart({ isOpen, onClose }) {
       fetchCart();
     };
 
-    window.addEventListener(
-      "cartUpdated",
-      handleCartUpdate
-    );
+    window.addEventListener("cartUpdated", handleCartUpdate);
 
     return () => {
-      window.removeEventListener(
-        "cartUpdated",
-        handleCartUpdate
-      );
+      window.removeEventListener("cartUpdated", handleCartUpdate);
     };
   }, []);
 
@@ -117,10 +95,7 @@ function Cart({ isOpen, onClose }) {
       0
     ) || 0;
 
-  const updateQuantity = async (
-    itemId,
-    quantity
-  ) => {
+  const updateQuantity = async (itemId, quantity) => {
     if (quantity < 1) {
       return;
     }
@@ -128,11 +103,8 @@ function Cart({ isOpen, onClose }) {
     try {
       setUpdating(true);
 
-      const userId =
-        localStorage.getItem("userId");
-
-      const guestId =
-        localStorage.getItem("guestId");
+      const userId = localStorage.getItem("userId");
+      const guestId = localStorage.getItem("guestId");
 
       let url = `http://localhost:5000/api/cart/${itemId}`;
 
@@ -142,12 +114,9 @@ function Cart({ isOpen, onClose }) {
         url += `?guestId=${guestId}`;
       }
 
-      const response = await axios.put(
-        url,
-        {
-          quantity
-        }
-      );
+      const response = await axios.put(url, {
+        quantity
+      });
 
       setCart(
         response.data?.cart || {
@@ -155,14 +124,9 @@ function Cart({ isOpen, onClose }) {
         }
       );
 
-      window.dispatchEvent(
-        new Event("cartUpdated")
-      );
+      window.dispatchEvent(new Event("cartUpdated"));
     } catch (error) {
-      console.log(
-        "UPDATE CART ERROR:",
-        error
-      );
+      console.log("UPDATE CART ERROR:", error);
 
       alert(
         error.response?.data?.message ||
@@ -177,11 +141,8 @@ function Cart({ isOpen, onClose }) {
     try {
       setUpdating(true);
 
-      const userId =
-        localStorage.getItem("userId");
-
-      const guestId =
-        localStorage.getItem("guestId");
+      const userId = localStorage.getItem("userId");
+      const guestId = localStorage.getItem("guestId");
 
       let url = `http://localhost:5000/api/cart/${itemId}`;
 
@@ -199,14 +160,9 @@ function Cart({ isOpen, onClose }) {
         }
       );
 
-      window.dispatchEvent(
-        new Event("cartUpdated")
-      );
+      window.dispatchEvent(new Event("cartUpdated"));
     } catch (error) {
-      console.log(
-        "REMOVE CART ERROR:",
-        error
-      );
+      console.log("REMOVE CART ERROR:", error);
 
       alert(
         error.response?.data?.message ||
@@ -245,11 +201,7 @@ function Cart({ isOpen, onClose }) {
           isOpen ? "open" : ""
         }`}
       >
-
-        {/* HEADER */}
-
         <div className="d-flex justify-content-between align-items-center border-bottom px-3 py-3">
-
           <h5 className="mb-0 fw-semibold">
             Your cart ({totalItems})
           </h5>
@@ -261,17 +213,11 @@ function Cart({ isOpen, onClose }) {
           >
             ×
           </button>
-
         </div>
 
-        {/* BODY */}
-
         <div className="cart-body flex-grow-1 overflow-auto px-3 py-3">
-
           {loading ? (
-
             <div className="text-center py-5">
-
               <div
                 className="spinner-border"
                 role="status"
@@ -280,13 +226,9 @@ function Cart({ isOpen, onClose }) {
               <p className="mt-3 text-muted">
                 Loading cart...
               </p>
-
             </div>
-
           ) : cart.items?.length === 0 ? (
-
             <div className="text-center py-5">
-
               <i className="bi bi-bag fs-1"></i>
 
               <h5 className="mt-3">
@@ -304,17 +246,12 @@ function Cart({ isOpen, onClose }) {
               >
                 SHOP NOW
               </Link>
-
             </div>
-
           ) : (
-
             cart.items.map((item) => {
-
               const product = item.product;
 
-              const price =
-                getPrice(product);
+              const price = getPrice(product);
 
               const itemTotal =
                 price *
@@ -325,9 +262,6 @@ function Cart({ isOpen, onClose }) {
                   key={item._id}
                   className="d-flex gap-3 border-bottom pb-3 mb-3"
                 >
-
-                  {/* IMAGE */}
-
                   <div
                     className="flex-shrink-0"
                     style={{
@@ -335,50 +269,30 @@ function Cart({ isOpen, onClose }) {
                       height: "105px"
                     }}
                   >
-
                     <Link
                       to={`/product/${product?._id}`}
                       onClick={onClose}
                     >
-
                       {product?.images?.[0] ? (
-
                         <img
-                          src={
-                            product.images[0]
-                          }
-                          alt={
-                            product.name
-                          }
+                          src={product.images[0]}
+                          alt={product.name}
                           className="w-100 h-100 rounded"
                           style={{
-                            objectFit:
-                              "contain",
-                            background:
-                              "#f5f5f5"
+                            objectFit: "contain",
+                            background: "#f5f5f5"
                           }}
                         />
-
                       ) : (
-
-                        <div
-                          className="w-100 h-100 bg-light d-flex align-items-center justify-content-center small"
-                        >
+                        <div className="w-100 h-100 bg-light d-flex align-items-center justify-content-center small">
                           No Image
                         </div>
-
                       )}
-
                     </Link>
-
                   </div>
 
-                  {/* PRODUCT INFO */}
-
                   <div className="flex-grow-1">
-
                     <div className="d-flex justify-content-between gap-2">
-
                       <Link
                         to={`/product/${product?._id}`}
                         onClick={onClose}
@@ -392,18 +306,14 @@ function Cart({ isOpen, onClose }) {
                         className="btn btn-link text-dark text-decoration-none p-0 fs-5"
                         disabled={updating}
                         onClick={() =>
-                          removeItem(
-                            item._id
-                          )
+                          removeItem(item._id)
                         }
                       >
                         ×
                       </button>
-
                     </div>
 
                     <p className="text-muted small mb-2">
-
                       Size:{" "}
                       <strong>
                         {item.size}
@@ -418,22 +328,16 @@ function Cart({ isOpen, onClose }) {
                           </strong>
                         </>
                       )}
-
                     </p>
 
                     <div className="d-flex justify-content-between align-items-center">
-
-                      {/* QUANTITY */}
-
                       <div className="d-flex align-items-center border rounded-pill">
-
                         <button
                           type="button"
                           className="btn btn-sm border-0 px-2"
                           disabled={
                             updating ||
-                            item.quantity <=
-                              1
+                            item.quantity <= 1
                           }
                           onClick={() =>
                             updateQuantity(
@@ -466,10 +370,7 @@ function Cart({ isOpen, onClose }) {
                         >
                           +
                         </button>
-
                       </div>
-
-                      {/* PRICE */}
 
                       <strong className="small">
                         ₹
@@ -477,27 +378,17 @@ function Cart({ isOpen, onClose }) {
                           "en-IN"
                         )}
                       </strong>
-
                     </div>
-
                   </div>
-
                 </div>
               );
             })
-
           )}
-
         </div>
 
-        {/* FOOTER */}
-
         {cart.items?.length > 0 && (
-
           <div className="border-top bg-white p-3">
-
             <div className="d-flex justify-content-between align-items-center">
-
               <span className="fw-semibold">
                 Estimated total
               </span>
@@ -508,7 +399,6 @@ function Cart({ isOpen, onClose }) {
                   "en-IN"
                 )}
               </strong>
-
             </div>
 
             <p className="small text-muted mb-3 mt-1">
@@ -517,9 +407,7 @@ function Cart({ isOpen, onClose }) {
             </p>
 
             <div className="row g-2">
-
               <div className="col-4">
-
                 <button
                   type="button"
                   className="btn btn-light w-100 rounded-pill"
@@ -527,11 +415,9 @@ function Cart({ isOpen, onClose }) {
                 >
                   View
                 </button>
-
               </div>
 
               <div className="col-8">
-
                 <button
                   type="button"
                   className="btn btn-dark w-100 rounded-pill"
@@ -539,15 +425,10 @@ function Cart({ isOpen, onClose }) {
                 >
                   BUY NOW
                 </button>
-
               </div>
-
             </div>
-
           </div>
-
         )}
-
       </div>
     </>
   );

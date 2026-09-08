@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CartPage.css";
@@ -14,11 +14,11 @@ function CartPage() {
     const [loading, setLoading] = useState(true);
     const [updating, setUpdating] = useState(false);
 
-    const getToken = () => {
+    const getToken = useCallback(() => {
         return localStorage.getItem("token");
-    };
+    }, []);
 
-    const getGuestId = () => {
+    const getGuestId = useCallback(() => {
         let guestId = localStorage.getItem("guestId");
 
         if (!guestId) {
@@ -26,17 +26,15 @@ function CartPage() {
                 "guest_" +
                 Date.now() +
                 "_" +
-                Math.random()
-                    .toString(36)
-                    .substring(2, 10);
+                Math.random().toString(36).substring(2, 10);
 
             localStorage.setItem("guestId", guestId);
         }
 
         return guestId;
-    };
+    }, []);
 
-    const getUserIdFromToken = () => {
+    const getUserIdFromToken = useCallback(() => {
         const token = getToken();
 
         if (!token) {
@@ -50,9 +48,7 @@ function CartPage() {
                 .replace(/-/g, "+")
                 .replace(/_/g, "/");
 
-            const payload = JSON.parse(
-                atob(base64)
-            );
+            const payload = JSON.parse(atob(base64));
 
             return (
                 payload.id ||
@@ -62,24 +58,19 @@ function CartPage() {
                 null
             );
         } catch (error) {
-            console.log(
-                "TOKEN ERROR:",
-                error.message
-            );
-
+            console.log("TOKEN ERROR:", error.message);
             return null;
         }
-    };
+    }, [getToken]);
 
-    const getCartConfig = () => {
+    const getCartConfig = useCallback(() => {
         const token = getToken();
         const userId = getUserIdFromToken();
 
         if (token && userId) {
             return {
                 headers: {
-                    Authorization:
-                        `Bearer ${token}`
+                    Authorization: `Bearer ${token}`
                 },
                 params: {
                     userId
@@ -94,13 +85,12 @@ function CartPage() {
                 guestId
             }
         };
-    };
+    }, [getToken, getUserIdFromToken, getGuestId]);
 
-    const fetchCart = async () => {
+    const fetchCart = useCallback(async () => {
         try {
             setLoading(true);
 
-            const token = getToken();
             const userId = getUserIdFromToken();
 
             let guestId = null;
@@ -109,23 +99,17 @@ function CartPage() {
                 guestId = getGuestId();
             }
 
-            console.log(
-                "GET CART OWNER:",
-                {
-                    userId,
-                    guestId
-                }
-            );
+            console.log("GET CART OWNER:", {
+                userId,
+                guestId
+            });
 
             const response = await axios.get(
                 "http://localhost:5000/api/cart",
                 getCartConfig()
             );
 
-            console.log(
-                "CART RESPONSE:",
-                response.data
-            );
+            console.log("CART RESPONSE:", response.data);
 
             const cartData =
                 response.data?.cart ||
@@ -139,8 +123,7 @@ function CartPage() {
         } catch (error) {
             console.log(
                 "CART ERROR:",
-                error.response?.data ||
-                    error.message
+                error.response?.data || error.message
             );
 
             setCart({
@@ -149,7 +132,7 @@ function CartPage() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [getUserIdFromToken, getGuestId, getCartConfig]);
 
     useEffect(() => {
         fetchCart();
@@ -169,54 +152,47 @@ function CartPage() {
                 handleCartUpdate
             );
         };
-    }, []);
+    }, [fetchCart]);
 
     const getPrice = product => {
         return Number(
             product?.discountPrice ||
-                product?.price ||
-                0
+            product?.price ||
+            0
         );
     };
 
     const totalItems =
         cart.items?.reduce(
             (total, item) =>
-                total +
-                Number(item.quantity || 0),
+                total + Number(item.quantity || 0),
             0
         ) || 0;
 
     const subtotal =
         cart.items?.reduce(
             (total, item) => {
-                const product =
-                    item.product || {};
+                const product = item.product || {};
 
-                const price =
-                    getPrice(product);
+                const price = getPrice(product);
 
                 const quantity =
                     Number(item.quantity || 0);
 
-                return (
-                    total +
-                    price * quantity
-                );
+                return total + price * quantity;
             },
             0
         ) || 0;
 
     const shippingCharge =
-        subtotal >= 999 ||
-        subtotal === 0
+        subtotal >= 999 || subtotal === 0
             ? 0
             : 99;
 
     const totalAmount =
         subtotal + shippingCharge;
 
-    const getCategories = () => {
+    const getCategories = useCallback(() => {
         const categories = [];
 
         cart.items?.forEach(item => {
@@ -232,10 +208,10 @@ function CartPage() {
         });
 
         return categories;
-    };
+    }, [cart.items]);
 
     const fetchRecommendedProducts =
-        async () => {
+        useCallback(async () => {
             try {
                 if (
                     !cart.items ||
@@ -266,41 +242,37 @@ function CartPage() {
 
                 const result = {};
 
-                categories.forEach(
-                    category => {
-                        result[category] =
-                            products
-                                .filter(
-                                    product =>
-                                        product.category
-                                            ?.toLowerCase() ===
-                                        category.toLowerCase()
-                                )
-                                .filter(
-                                    product =>
-                                        !cartProductIds.includes(
-                                            product._id
-                                        )
-                                )
-                                .slice(0, 10);
-                    }
-                );
+                categories.forEach(category => {
+                    result[category] =
+                        products
+                            .filter(
+                                product =>
+                                    product.category
+                                        ?.toLowerCase() ===
+                                    category.toLowerCase()
+                            )
+                            .filter(
+                                product =>
+                                    !cartProductIds.includes(
+                                        product._id
+                                    )
+                            )
+                            .slice(0, 10);
+                });
 
-                setRecommendedProducts(
-                    result
-                );
+                setRecommendedProducts(result);
             } catch (error) {
                 console.log(
                     "RECOMMENDED ERROR:",
                     error.response?.data ||
-                        error.message
+                    error.message
                 );
             }
-        };
+        }, [cart.items, getCategories]);
 
     useEffect(() => {
         fetchRecommendedProducts();
-    }, [cart.items]);
+    }, [fetchRecommendedProducts]);
 
     const updateQuantity = async (
         itemId,
@@ -335,12 +307,12 @@ function CartPage() {
             console.log(
                 "UPDATE ERROR:",
                 error.response?.data ||
-                    error.message
+                error.message
             );
 
             alert(
                 error.response?.data?.message ||
-                    "Quantity update failed"
+                "Quantity update failed"
             );
         } finally {
             setUpdating(false);
@@ -370,12 +342,12 @@ function CartPage() {
             console.log(
                 "REMOVE ERROR:",
                 error.response?.data ||
-                    error.message
+                error.message
             );
 
             alert(
                 error.response?.data?.message ||
-                    "Product remove nahi hua"
+                "Product remove nahi hua"
             );
         } finally {
             setUpdating(false);
@@ -475,23 +447,18 @@ function CartPage() {
                         ) : (
                             cart.items.map(item => {
                                 const product =
-                                    item.product ||
-                                    {};
+                                    item.product || {};
 
                                 const price =
-                                    getPrice(
-                                        product
-                                    );
+                                    getPrice(product);
 
                                 const quantity =
                                     Number(
-                                        item.quantity ||
-                                            0
+                                        item.quantity || 0
                                     );
 
                                 const itemTotal =
-                                    price *
-                                    quantity;
+                                    price * quantity;
 
                                 return (
                                     <div
@@ -504,12 +471,10 @@ function CartPage() {
                                                     to={`/product/${product._id}`}
                                                     className="d-block bg-light"
                                                 >
-                                                    {product
-                                                        .images?.[0] ? (
+                                                    {product.images?.[0] ? (
                                                         <img
                                                             src={
-                                                                product
-                                                                    .images[0]
+                                                                product.images[0]
                                                             }
                                                             alt={
                                                                 product.name
@@ -600,13 +565,13 @@ function CartPage() {
                                                         disabled={
                                                             updating ||
                                                             quantity <=
-                                                                1
+                                                            1
                                                         }
                                                         onClick={() =>
                                                             updateQuantity(
                                                                 item._id,
                                                                 quantity -
-                                                                    1
+                                                                1
                                                             )
                                                         }
                                                     >
@@ -625,16 +590,16 @@ function CartPage() {
                                                         disabled={
                                                             updating ||
                                                             quantity >=
-                                                                Number(
-                                                                    product.stock ||
-                                                                        0
-                                                                )
+                                                            Number(
+                                                                product.stock ||
+                                                                0
+                                                            )
                                                         }
                                                         onClick={() =>
                                                             updateQuantity(
                                                                 item._id,
                                                                 quantity +
-                                                                    1
+                                                                1
                                                             )
                                                         }
                                                     >
@@ -866,8 +831,7 @@ function CartPage() {
                                                             to={`/product/${product._id}`}
                                                             className="d-block bg-light"
                                                         >
-                                                            {product
-                                                                .images?.[0] ? (
+                                                            {product.images?.[0] ? (
                                                                 <img
                                                                     src={
                                                                         product
@@ -919,9 +883,9 @@ function CartPage() {
                                                                     Number(
                                                                         product.discountPrice
                                                                     ) <
-                                                                        Number(
-                                                                            product.price
-                                                                        ) && (
+                                                                    Number(
+                                                                        product.price
+                                                                    ) && (
                                                                         <span className="text-muted text-decoration-line-through ms-2 small">
                                                                             ₹
                                                                             {Number(
