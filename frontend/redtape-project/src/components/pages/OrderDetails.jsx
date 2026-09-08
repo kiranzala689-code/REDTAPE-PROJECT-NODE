@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./OrderDetails.css";
 
+const API_URL = "http://localhost:5000";
+
 function OrderDetails() {
     const { id } = useParams();
     const navigate = useNavigate();
@@ -11,11 +13,11 @@ function OrderDetails() {
     const [loading, setLoading] = useState(true);
     const [cancelling, setCancelling] = useState(false);
 
-    const getToken = () => {
+    const getToken = useCallback(() => {
         return localStorage.getItem("token");
-    };
+    }, []);
 
-    const getAuthConfig = () => {
+    const getAuthConfig = useCallback(() => {
         const token = getToken();
 
         return {
@@ -23,7 +25,7 @@ function OrderDetails() {
                 Authorization: `Bearer ${token}`
             }
         };
-    };
+    }, [getToken]);
 
     const getOrder = useCallback(async () => {
         try {
@@ -37,7 +39,7 @@ function OrderDetails() {
             setLoading(true);
 
             const response = await axios.get(
-                `http://localhost:5000/api/orders/${id}`,
+                `${API_URL}/api/orders/${id}`,
                 getAuthConfig()
             );
 
@@ -74,7 +76,7 @@ function OrderDetails() {
         } finally {
             setLoading(false);
         }
-    }, [id, navigate]);
+    }, [id, navigate, getToken, getAuthConfig]);
 
     useEffect(() => {
         getOrder();
@@ -93,7 +95,7 @@ function OrderDetails() {
             setCancelling(true);
 
             const response = await axios.put(
-                `http://localhost:5000/api/orders/${id}/cancel`,
+                `${API_URL}/api/orders/${id}/cancel`,
                 {},
                 getAuthConfig()
             );

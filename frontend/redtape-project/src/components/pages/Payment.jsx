@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Payment.css";
 
+const API_URL = "http://localhost:5000";
+
 function Payment() {
     const { orderId } = useParams();
     const navigate = useNavigate();
@@ -11,11 +13,11 @@ function Payment() {
     const [loading, setLoading] = useState(true);
     const [paying, setPaying] = useState(false);
 
-    const getToken = () => {
+    const getToken = useCallback(() => {
         return localStorage.getItem("token");
-    };
+    }, []);
 
-    const getAuthConfig = () => {
+    const getAuthConfig = useCallback(() => {
         const token = getToken();
 
         return {
@@ -23,7 +25,7 @@ function Payment() {
                 Authorization: `Bearer ${token}`
             }
         };
-    };
+    }, [getToken]);
 
     const getOrder = useCallback(async () => {
         try {
@@ -35,7 +37,7 @@ function Payment() {
             }
 
             const response = await axios.get(
-                `http://localhost:5000/api/orders/${orderId}`,
+                `${API_URL}/api/orders/${orderId}`,
                 getAuthConfig()
             );
 
@@ -66,7 +68,7 @@ function Payment() {
         } finally {
             setLoading(false);
         }
-    }, [orderId, navigate]);
+    }, [orderId, navigate, getToken, getAuthConfig]);
 
     useEffect(() => {
         getOrder();
@@ -105,7 +107,7 @@ function Payment() {
             }
 
             const response = await axios.post(
-                "http://localhost:5000/api/payment/create",
+                `${API_URL}/api/payment/create`,
                 {
                     orderId
                 },
@@ -135,7 +137,7 @@ function Payment() {
                     try {
                         const verifyResponse =
                             await axios.post(
-                                "http://localhost:5000/api/payment/verify",
+                                `${API_URL}/api/payment/verify`,
                                 {
                                     razorpay_order_id:
                                         payment.razorpay_order_id,
