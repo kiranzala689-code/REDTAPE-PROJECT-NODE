@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./Payment.css";
@@ -25,7 +25,7 @@ function Payment() {
         };
     };
 
-    const getOrder = async () => {
+    const getOrder = useCallback(async () => {
         try {
             const token = getToken();
 
@@ -66,14 +66,14 @@ function Payment() {
         } finally {
             setLoading(false);
         }
-    };
+    }, [orderId, navigate]);
 
     useEffect(() => {
         getOrder();
-    }, [orderId]);
+    }, [getOrder]);
 
     const loadRazorpay = () => {
-        return new Promise(resolve => {
+        return new Promise((resolve) => {
             if (window.Razorpay) {
                 resolve(true);
                 return;
@@ -95,8 +95,7 @@ function Payment() {
         try {
             setPaying(true);
 
-            const razorpayLoaded =
-                await loadRazorpay();
+            const razorpayLoaded = await loadRazorpay();
 
             if (!razorpayLoaded) {
                 alert(
@@ -105,14 +104,13 @@ function Payment() {
                 return;
             }
 
-            const response =
-                await axios.post(
-                    "http://localhost:5000/api/payment/create",
-                    {
-                        orderId
-                    },
-                    getAuthConfig()
-                );
+            const response = await axios.post(
+                "http://localhost:5000/api/payment/create",
+                {
+                    orderId
+                },
+                getAuthConfig()
+            );
 
             const paymentOrder =
                 response.data?.paymentOrder ||
@@ -120,9 +118,7 @@ function Payment() {
                 response.data;
 
             if (!paymentOrder?.id) {
-                alert(
-                    "Payment order create nahi hua"
-                );
+                alert("Payment order create nahi hua");
                 return;
             }
 
@@ -132,8 +128,7 @@ function Payment() {
                 currency:
                     paymentOrder.currency || "INR",
                 name: "REDTAPE",
-                description:
-                    "Order Payment",
+                description: "Order Payment",
                 order_id: paymentOrder.id,
 
                 handler: async function (payment) {
@@ -144,24 +139,23 @@ function Payment() {
                                 {
                                     razorpay_order_id:
                                         payment.razorpay_order_id,
+
                                     razorpay_payment_id:
                                         payment.razorpay_payment_id,
+
                                     razorpay_signature:
                                         payment.razorpay_signature,
+
                                     orderId
                                 },
                                 getAuthConfig()
                             );
 
                         if (
-                            verifyResponse.data
-                                ?.success ||
-                            verifyResponse.data
-                                ?.message
+                            verifyResponse.data?.success ||
+                            verifyResponse.data?.message
                         ) {
-                            alert(
-                                "Payment successful"
-                            );
+                            alert("Payment successful");
 
                             navigate(
                                 `/orders/${orderId}`
@@ -174,14 +168,12 @@ function Payment() {
                     } catch (error) {
                         console.log(
                             "VERIFY ERROR:",
-                            error.response
-                                ?.data ||
+                            error.response?.data ||
                             error.message
                         );
 
                         alert(
-                            error.response?.data
-                                ?.message ||
+                            error.response?.data?.message ||
                             "Payment verification failed"
                         );
                     }
@@ -189,14 +181,13 @@ function Payment() {
 
                 prefill: {
                     name:
-                        order?.user?.name ||
-                        "",
+                        order?.user?.name || "",
+
                     email:
-                        order?.user?.email ||
-                        "",
+                        order?.user?.email || "",
+
                     contact:
-                        order?.address?.phone ||
-                        ""
+                        order?.address?.phone || ""
                 },
 
                 theme: {
@@ -222,8 +213,7 @@ function Payment() {
                     );
 
                     alert(
-                        response.error
-                            ?.description ||
+                        response.error?.description ||
                         "Payment failed"
                     );
 
@@ -239,12 +229,8 @@ function Payment() {
                 error.message
             );
 
-            if (
-                error.response?.status === 401
-            ) {
-                localStorage.removeItem(
-                    "token"
-                );
+            if (error.response?.status === 401) {
+                localStorage.removeItem("token");
 
                 alert(
                     "Session expired. Please login again."
@@ -271,6 +257,7 @@ function Payment() {
                         className="spinner-border"
                         role="status"
                     />
+
                     <p className="mt-3">
                         Loading payment...
                     </p>
@@ -283,6 +270,7 @@ function Payment() {
         return (
             <div className="container py-5">
                 <div className="text-center py-5">
+
                     <h3 className="fw-bold">
                         ORDER NOT FOUND
                     </h3>
@@ -293,6 +281,7 @@ function Payment() {
                     >
                         MY ORDERS
                     </Link>
+
                 </div>
             </div>
         );
@@ -307,9 +296,11 @@ function Payment() {
 
     return (
         <div className="payment-page bg-white">
+
             <div className="container py-4 py-lg-5">
 
                 <div className="border-bottom pb-4 mb-5">
+
                     <Link
                         to="/checkout"
                         className="text-dark text-decoration-none fw-semibold"
@@ -324,6 +315,7 @@ function Payment() {
                     <p className="text-muted mb-0">
                         Complete your order payment securely
                     </p>
+
                 </div>
 
                 <div className="row justify-content-center">
@@ -345,6 +337,7 @@ function Payment() {
                             </div>
 
                             <div className="d-flex justify-content-between mb-3">
+
                                 <span>
                                     Order ID
                                 </span>
@@ -354,9 +347,11 @@ function Payment() {
                                         .slice(-10)
                                         .toUpperCase()}
                                 </strong>
+
                             </div>
 
                             <div className="d-flex justify-content-between mb-4">
+
                                 <span>
                                     Payment Method
                                 </span>
@@ -364,6 +359,7 @@ function Payment() {
                                 <strong>
                                     ONLINE
                                 </strong>
+
                             </div>
 
                             <div className="bg-light p-4 mb-4">
@@ -411,6 +407,7 @@ function Payment() {
                 </div>
 
             </div>
+
         </div>
     );
 }
