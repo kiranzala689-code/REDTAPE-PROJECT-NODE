@@ -29,7 +29,7 @@ const getBackendCategory = (value) => {
     );
 };
 
-const API_URL = "http://localhost:5000";
+const API_URL = "https://redtape-project-node-3.onrender.com";
 
 function ProductDetail() {
     const { category, id } = useParams();

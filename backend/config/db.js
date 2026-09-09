@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 
 const connectDB = () => {
+    if (!process.env.MONGO_URI) {
+        console.log("MONGO_URI is not defined");
+        return;
+    }
+
     mongoose.connect(process.env.MONGO_URI);
 
     const db = mongoose.connection;

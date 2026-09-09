@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./UserAccount.css";
+
+const API_URL = "https://redtape-project-node-3.onrender.com";
 
 function UserAccount() {
     const navigate = useNavigate();
@@ -17,6 +20,19 @@ function UserAccount() {
         state: "",
         pincode: ""
     });
+
+    const [addressLoading, setAddressLoading] = useState(false);
+    const [savingAddress, setSavingAddress] = useState(false);
+
+    const getAuthConfig = useCallback(() => {
+        const token = localStorage.getItem("token");
+
+        return {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        };
+    }, []);
 
     useEffect(() => {
         const savedUser =
@@ -35,17 +51,6 @@ function UserAccount() {
                 JSON.parse(savedUser);
 
             setUser(userData);
-
-            const savedAddress =
-                localStorage.getItem(
-                    `address_${userData.id}`
-                );
-
-            if (savedAddress) {
-                setAddress(
-                    JSON.parse(savedAddress)
-                );
-            }
         } catch (error) {
             localStorage.removeItem("user");
             localStorage.removeItem("userId");
@@ -54,6 +59,73 @@ function UserAccount() {
             navigate("/login");
         }
     }, [navigate]);
+
+    useEffect(() => {
+        const getAddress = async () => {
+            const token =
+                localStorage.getItem("token");
+
+            if (!token) {
+                return;
+            }
+
+            try {
+                setAddressLoading(true);
+
+                const response = await axios.get(
+                    `${API_URL}/api/address`,
+                    getAuthConfig()
+                );
+
+                const addressData =
+                    response.data?.address ||
+                    response.data?.data ||
+                    response.data;
+
+                if (Array.isArray(addressData)) {
+                    if (addressData.length > 0) {
+                        setAddress(addressData[0]);
+                    }
+                } else if (
+                    addressData &&
+                    typeof addressData === "object"
+                ) {
+                    setAddress({
+                        name: addressData.name || "",
+                        phone: addressData.phone || "",
+                        address:
+                            addressData.address ||
+                            addressData.addressLine ||
+                            "",
+                        city: addressData.city || "",
+                        state: addressData.state || "",
+                        pincode:
+                            addressData.pincode || ""
+                    });
+                }
+            } catch (error) {
+                console.log(
+                    "ADDRESS ERROR:",
+                    error.response?.data ||
+                    error.message
+                );
+
+                if (
+                    error.response?.status === 401
+                ) {
+                    localStorage.removeItem("token");
+                    localStorage.removeItem("user");
+                    localStorage.removeItem("userId");
+
+                    navigate("/login");
+                }
+            } finally {
+                setAddressLoading(false);
+            }
+        };
+
+        getAddress();
+    }, [getAuthConfig, navigate]);
 
     const handleLogout = () => {
         localStorage.removeItem("token");
@@ -76,17 +148,62 @@ function UserAccount() {
         }));
     };
 
-    const saveAddress = () => {
+    const saveAddress = async () => {
         if (!user) {
             return;
         }
 
-        localStorage.setItem(
-            `address_${user.id}`,
-            JSON.stringify(address)
-        );
+        if (
+            !address.name ||
+            !address.phone ||
+            !address.address ||
+            !address.city ||
+            !address.state ||
+            !address.pincode
+        ) {
+            alert("Please fill all address fields");
+            return;
+        }
 
-        alert("Address saved successfully");
+        try {
+            setSavingAddress(true);
+
+            await axios.post(
+                `${API_URL}/api/address`,
+                address,
+                getAuthConfig()
+            );
+
+            alert("Address saved successfully");
+        } catch (error) {
+            console.log(
+                "SAVE ADDRESS ERROR:",
+                error.response?.data ||
+                error.message
+            );
+
+            if (
+                error.response?.status === 401
+            ) {
+                localStorage.removeItem("token");
+                localStorage.removeItem("user");
+                localStorage.removeItem("userId");
+
+                alert(
+                    "Session expired. Please login again."
+                );
+
+                navigate("/login");
+                return;
+            }
+
+            alert(
+                error.response?.data?.message ||
+                "Address save nahi hua"
+            );
+        } finally {
+            setSavingAddress(false);
+        }
     };
 
     if (!user) {
@@ -254,6 +371,7 @@ function UserAccount() {
 
                                     <h4>
                                         {user.id ||
+                                            user._id ||
                                             "Not Available"}
                                     </h4>
 
@@ -343,144 +461,163 @@ function UserAccount() {
 
                             </div>
 
-                            <div className="address-form">
-
-                                <div className="address-row">
-
-                                    <div className="address-field">
-
-                                        <label>
-                                            FULL NAME
-                                        </label>
-
-                                        <input
-                                            type="text"
-                                            name="name"
-                                            value={
-                                                address.name
-                                            }
-                                            onChange={
-                                                handleAddressChange
-                                            }
-                                            placeholder="Enter full name"
-                                        />
-
-                                    </div>
-
-                                    <div className="address-field">
-
-                                        <label>
-                                            PHONE NUMBER
-                                        </label>
-
-                                        <input
-                                            type="tel"
-                                            name="phone"
-                                            value={
-                                                address.phone
-                                            }
-                                            onChange={
-                                                handleAddressChange
-                                            }
-                                            placeholder="Enter phone number"
-                                        />
-
-                                    </div>
-
-                                </div>
-
-                                <div className="address-field">
-
-                                    <label>
-                                        ADDRESS
-                                    </label>
-
-                                    <textarea
-                                        name="address"
-                                        value={
-                                            address.address
-                                        }
-                                        onChange={
-                                            handleAddressChange
-                                        }
-                                        placeholder="Enter your complete address"
-                                        rows="4"
+                            {addressLoading ? (
+                                <div className="text-center py-5">
+                                    <div
+                                        className="spinner-border"
+                                        role="status"
                                     />
 
+                                    <p className="mt-3 text-muted">
+                                        Loading address...
+                                    </p>
                                 </div>
+                            ) : (
+                                <div className="address-form">
 
-                                <div className="address-row">
+                                    <div className="address-row">
 
-                                    <div className="address-field">
+                                        <div className="address-field">
 
-                                        <label>
-                                            CITY
-                                        </label>
+                                            <label>
+                                                FULL NAME
+                                            </label>
 
-                                        <input
-                                            type="text"
-                                            name="city"
-                                            value={
-                                                address.city
-                                            }
-                                            onChange={
-                                                handleAddressChange
-                                            }
-                                            placeholder="Enter city"
-                                        />
+                                            <input
+                                                type="text"
+                                                name="name"
+                                                value={
+                                                    address.name
+                                                }
+                                                onChange={
+                                                    handleAddressChange
+                                                }
+                                                placeholder="Enter full name"
+                                            />
+
+                                        </div>
+
+                                        <div className="address-field">
+
+                                            <label>
+                                                PHONE NUMBER
+                                            </label>
+
+                                            <input
+                                                type="tel"
+                                                name="phone"
+                                                value={
+                                                    address.phone
+                                                }
+                                                onChange={
+                                                    handleAddressChange
+                                                }
+                                                placeholder="Enter phone number"
+                                            />
+
+                                        </div>
 
                                     </div>
 
                                     <div className="address-field">
 
                                         <label>
-                                            STATE
+                                            ADDRESS
                                         </label>
 
-                                        <input
-                                            type="text"
-                                            name="state"
+                                        <textarea
+                                            name="address"
                                             value={
-                                                address.state
+                                                address.address
                                             }
                                             onChange={
                                                 handleAddressChange
                                             }
-                                            placeholder="Enter state"
+                                            placeholder="Enter your complete address"
+                                            rows="4"
                                         />
 
                                     </div>
 
-                                </div>
+                                    <div className="address-row">
 
-                                <div className="address-field">
+                                        <div className="address-field">
 
-                                    <label>
-                                        PINCODE
-                                    </label>
+                                            <label>
+                                                CITY
+                                            </label>
 
-                                    <input
-                                        type="text"
-                                        name="pincode"
-                                        value={
-                                            address.pincode
+                                            <input
+                                                type="text"
+                                                name="city"
+                                                value={
+                                                    address.city
+                                                }
+                                                onChange={
+                                                    handleAddressChange
+                                                }
+                                                placeholder="Enter city"
+                                            />
+
+                                        </div>
+
+                                        <div className="address-field">
+
+                                            <label>
+                                                STATE
+                                            </label>
+
+                                            <input
+                                                type="text"
+                                                name="state"
+                                                value={
+                                                    address.state
+                                                }
+                                                onChange={
+                                                    handleAddressChange
+                                                }
+                                                placeholder="Enter state"
+                                            />
+
+                                        </div>
+
+                                    </div>
+
+                                    <div className="address-field">
+
+                                        <label>
+                                            PINCODE
+                                        </label>
+
+                                        <input
+                                            type="text"
+                                            name="pincode"
+                                            value={
+                                                address.pincode
+                                            }
+                                            onChange={
+                                                handleAddressChange
+                                            }
+                                            placeholder="Enter pincode"
+                                        />
+
+                                    </div>
+
+                                    <button
+                                        className="save-address-button"
+                                        onClick={saveAddress}
+                                        disabled={
+                                            savingAddress
                                         }
-                                        onChange={
-                                            handleAddressChange
-                                        }
-                                        placeholder="Enter pincode"
-                                    />
+                                    >
+                                        {savingAddress
+                                            ? "SAVING..."
+                                            : "SAVE ADDRESS"}
+                                    </button>
 
                                 </div>
+                            )}
 
-                                <button
-                                    className="save-address-button"
-                                    onClick={saveAddress}
-                                >
-                                    SAVE ADDRESS
-                                </button>
-
-                            </div>
                         </>
                     )}
 

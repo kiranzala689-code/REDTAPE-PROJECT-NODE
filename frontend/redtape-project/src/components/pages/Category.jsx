@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import "./Category.css";
 
+const API_URL = "https://redtape-project-node-3.onrender.com";
+
 function Category() {
     const { category } = useParams();
 
@@ -26,7 +28,7 @@ function Category() {
                 setError("");
 
                 const response = await axios.get(
-                    `http://localhost:5000/api/products/${category}`
+                    `${API_URL}/api/products/${category}`
                 );
 
                 const data = Array.isArray(response.data)
@@ -46,6 +48,9 @@ function Category() {
 
                     setPriceMin(0);
                     setPriceMax(Math.max(...prices));
+                } else {
+                    setPriceMin(0);
+                    setPriceMax(0);
                 }
             } catch (error) {
                 console.log(
@@ -63,7 +68,9 @@ function Category() {
             }
         };
 
-        getProducts();
+        if (category) {
+            getProducts();
+        }
     }, [category]);
 
     const getPrice = (product) => {
@@ -326,7 +333,6 @@ function Category() {
 
     return (
         <div className="category-page">
-
             <div className="container-fluid px-3 px-lg-4">
 
                 <div className="category-top">
@@ -746,6 +752,10 @@ function Category() {
                                     {filteredProducts.map(
                                         (product) => {
 
+                                            const productId =
+                                                product._id ||
+                                                product.id;
+
                                             const price =
                                                 getPrice(
                                                     product
@@ -773,8 +783,7 @@ function Category() {
                                                 <div
                                                     className="col-6 col-md-4 col-lg-3"
                                                     key={
-                                                        product._id ||
-                                                        product.id
+                                                        productId
                                                     }
                                                 >
 
@@ -783,7 +792,7 @@ function Category() {
                                                         <div className="product-image-wrap">
 
                                                             <Link
-                                                                to={`/${category}/${product._id || product.id}`}
+                                                                to={`/${category}/${productId}`}
                                                             >
 
                                                                 {image ? (
@@ -813,7 +822,7 @@ function Category() {
                                                         </div>
 
                                                         <Link
-                                                            to={`/${category}/${product._id || product.id}`}
+                                                            to={`/${category}/${productId}`}
                                                             className="product-info"
                                                         >
 
@@ -872,8 +881,19 @@ function Category() {
                     </div>
                 )}
 
-            </div>
+                {products.length === 0 && !error && (
+                    <div className="no-products">
+                        <h4>
+                            No products found
+                        </h4>
 
+                        <p>
+                            There are no products in this category.
+                        </p>
+                    </div>
+                )}
+
+            </div>
         </div>
     );
 }

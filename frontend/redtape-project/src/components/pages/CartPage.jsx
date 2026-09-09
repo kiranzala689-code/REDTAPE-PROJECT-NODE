@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./CartPage.css";
 
+const API_URL = "https://redtape-project-node-3.onrender.com";
+
 function CartPage() {
     const navigate = useNavigate();
 
@@ -105,7 +107,7 @@ function CartPage() {
             });
 
             const response = await axios.get(
-                "http://localhost:5000/api/cart",
+                `${API_URL}/api/cart`,
                 getCartConfig()
             );
 
@@ -154,7 +156,7 @@ function CartPage() {
         };
     }, [fetchCart]);
 
-    const getPrice = product => {
+    const getPrice = (product) => {
         return Number(
             product?.discountPrice ||
             product?.price ||
@@ -223,7 +225,7 @@ function CartPage() {
 
                 const response =
                     await axios.get(
-                        "http://localhost:5000/api/products"
+                        `${API_URL}/api/products`
                     );
 
                 const products =
@@ -287,7 +289,7 @@ function CartPage() {
 
             const response =
                 await axios.put(
-                    `http://localhost:5000/api/cart/${itemId}`,
+                    `${API_URL}/api/cart/${itemId}`,
                     {
                         quantity
                     },
@@ -325,7 +327,7 @@ function CartPage() {
 
             const response =
                 await axios.delete(
-                    `http://localhost:5000/api/cart/${itemId}`,
+                    `${API_URL}/api/cart/${itemId}`,
                     getCartConfig()
                 );
 
@@ -781,7 +783,7 @@ function CartPage() {
                                     </h3>
 
                                     <Link
-                                        to={`/category/${category}`}
+                                        to={`/${category}`}
                                         className="text-dark text-decoration-none fw-semibold"
                                     >
                                         VIEW ALL →

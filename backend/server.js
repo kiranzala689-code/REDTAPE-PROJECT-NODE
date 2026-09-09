@@ -23,13 +23,10 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-console.log(
-    "JWT SECRET LOADED:",
-    !!process.env.JWT_SECRET
-);
+console.log("JWT SECRET LOADED:", !!process.env.JWT_SECRET);
 
 app.get("/", (req, res) => {
-    res.json({
+    res.status(200).json({
         message: "E-commerce API is running"
     });
 });
@@ -45,8 +42,9 @@ app.use("/api/otp", otp_router);
 
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-    console.log(
-        `Server running on port ${PORT}`
-    );
+const server = app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server running on port ${PORT}`);
 });
+
+server.keepAliveTimeout = 120000;
+server.headersTimeout = 120000;

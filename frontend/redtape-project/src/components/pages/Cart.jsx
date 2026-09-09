@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Cart.css";
 
+const API_URL = "https://redtape-project-node-3.onrender.com";
+
 function Cart({ isOpen, onClose }) {
   const navigate = useNavigate();
 
@@ -29,11 +31,11 @@ function Cart({ isOpen, onClose }) {
 
       if (userId) {
         response = await axios.get(
-          `http://localhost:5000/api/cart?userId=${userId}`
+          `${API_URL}/api/cart?userId=${encodeURIComponent(userId)}`
         );
       } else {
         response = await axios.get(
-          `http://localhost:5000/api/cart?guestId=${guestId}`
+          `${API_URL}/api/cart?guestId=${encodeURIComponent(guestId)}`
         );
       }
 
@@ -43,7 +45,10 @@ function Cart({ isOpen, onClose }) {
         }
       );
     } catch (error) {
-      console.log("CART ERROR:", error);
+      console.log(
+        "CART ERROR:",
+        error.response?.data || error.message
+      );
 
       setCart({
         items: []
@@ -64,10 +69,16 @@ function Cart({ isOpen, onClose }) {
       fetchCart();
     };
 
-    window.addEventListener("cartUpdated", handleCartUpdate);
+    window.addEventListener(
+      "cartUpdated",
+      handleCartUpdate
+    );
 
     return () => {
-      window.removeEventListener("cartUpdated", handleCartUpdate);
+      window.removeEventListener(
+        "cartUpdated",
+        handleCartUpdate
+      );
     };
   }, []);
 
@@ -106,12 +117,12 @@ function Cart({ isOpen, onClose }) {
       const userId = localStorage.getItem("userId");
       const guestId = localStorage.getItem("guestId");
 
-      let url = `http://localhost:5000/api/cart/${itemId}`;
+      let url = `${API_URL}/api/cart/${itemId}`;
 
       if (userId) {
-        url += `?userId=${userId}`;
+        url += `?userId=${encodeURIComponent(userId)}`;
       } else if (guestId) {
-        url += `?guestId=${guestId}`;
+        url += `?guestId=${encodeURIComponent(guestId)}`;
       }
 
       const response = await axios.put(url, {
@@ -124,9 +135,14 @@ function Cart({ isOpen, onClose }) {
         }
       );
 
-      window.dispatchEvent(new Event("cartUpdated"));
+      window.dispatchEvent(
+        new Event("cartUpdated")
+      );
     } catch (error) {
-      console.log("UPDATE CART ERROR:", error);
+      console.log(
+        "UPDATE CART ERROR:",
+        error.response?.data || error.message
+      );
 
       alert(
         error.response?.data?.message ||
@@ -144,12 +160,12 @@ function Cart({ isOpen, onClose }) {
       const userId = localStorage.getItem("userId");
       const guestId = localStorage.getItem("guestId");
 
-      let url = `http://localhost:5000/api/cart/${itemId}`;
+      let url = `${API_URL}/api/cart/${itemId}`;
 
       if (userId) {
-        url += `?userId=${userId}`;
+        url += `?userId=${encodeURIComponent(userId)}`;
       } else if (guestId) {
-        url += `?guestId=${guestId}`;
+        url += `?guestId=${encodeURIComponent(guestId)}`;
       }
 
       const response = await axios.delete(url);
@@ -160,9 +176,14 @@ function Cart({ isOpen, onClose }) {
         }
       );
 
-      window.dispatchEvent(new Event("cartUpdated"));
+      window.dispatchEvent(
+        new Event("cartUpdated")
+      );
     } catch (error) {
-      console.log("REMOVE CART ERROR:", error);
+      console.log(
+        "REMOVE CART ERROR:",
+        error.response?.data || error.message
+      );
 
       alert(
         error.response?.data?.message ||
@@ -257,6 +278,10 @@ function Cart({ isOpen, onClose }) {
                 price *
                 Number(item.quantity || 0);
 
+              const productId =
+                product?._id?.$oid ||
+                product?._id;
+
               return (
                 <div
                   key={item._id}
@@ -270,7 +295,7 @@ function Cart({ isOpen, onClose }) {
                     }}
                   >
                     <Link
-                      to={`/product/${product?._id}`}
+                      to={`/product/${productId}`}
                       onClick={onClose}
                     >
                       {product?.images?.[0] ? (
@@ -294,7 +319,7 @@ function Cart({ isOpen, onClose }) {
                   <div className="flex-grow-1">
                     <div className="d-flex justify-content-between gap-2">
                       <Link
-                        to={`/product/${product?._id}`}
+                        to={`/product/${productId}`}
                         onClick={onClose}
                         className="text-dark text-decoration-none small fw-semibold"
                       >

@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 
+const API_URL = "https://redtape-project-node-3.onrender.com";
+
 function Login() {
     const navigate = useNavigate();
 
@@ -30,7 +32,7 @@ function Login() {
 
         try {
             const response = await axios.post(
-                "http://localhost:5000/api/cart/merge",
+                `${API_URL}/api/cart/merge`,
                 {
                     guestId
                 },
@@ -41,13 +43,17 @@ function Login() {
                 }
             );
 
-            console.log("GUEST CART MERGE:", response.data);
+            console.log(
+                "GUEST CART MERGE:",
+                response.data
+            );
 
             localStorage.removeItem("guestId");
         } catch (error) {
             console.log(
                 "MERGE CART ERROR:",
-                error.response?.data || error.message
+                error.response?.data ||
+                error.message
             );
         }
     };
@@ -63,27 +69,36 @@ function Login() {
         try {
             setLoading(true);
 
-            const guestId = localStorage.getItem("guestId");
+            const guestId =
+                localStorage.getItem("guestId");
 
             const response = await axios.post(
-                "http://localhost:5000/api/auth/login",
+                `${API_URL}/api/auth/login`,
                 {
                     email: formData.email.trim(),
                     password: formData.password
                 }
             );
 
-            console.log("LOGIN RESPONSE:", response.data);
+            console.log(
+                "LOGIN RESPONSE:",
+                response.data
+            );
 
             const token = response.data?.token;
             const user = response.data?.user;
 
             if (!token || !user) {
-                alert("Login response is invalid");
+                alert(
+                    "Login response is invalid"
+                );
                 return;
             }
 
-            localStorage.setItem("token", token);
+            localStorage.setItem(
+                "token",
+                token
+            );
 
             localStorage.setItem(
                 "user",
@@ -95,8 +110,15 @@ function Login() {
                 user.id
             );
 
-            console.log("LOGIN USER ID:", user.id);
-            console.log("LOGIN USER:", user);
+            console.log(
+                "LOGIN USER ID:",
+                user.id
+            );
+
+            console.log(
+                "LOGIN USER:",
+                user
+            );
 
             if (guestId) {
                 await mergeGuestCart(
@@ -116,10 +138,12 @@ function Login() {
             alert("Login successful");
 
             navigate("/account");
+
         } catch (error) {
             console.log(
                 "LOGIN ERROR:",
-                error.response?.data || error.message
+                error.response?.data ||
+                error.message
             );
 
             alert(
@@ -226,8 +250,12 @@ function Login() {
                                         name="email"
                                         className="form-control login-input"
                                         placeholder="Enter your email"
-                                        value={formData.email}
-                                        onChange={handleChange}
+                                        value={
+                                            formData.email
+                                        }
+                                        onChange={
+                                            handleChange
+                                        }
                                         autoComplete="email"
                                         required
                                     />
@@ -266,8 +294,12 @@ function Login() {
                                             name="password"
                                             className="form-control login-input"
                                             placeholder="Enter your password"
-                                            value={formData.password}
-                                            onChange={handleChange}
+                                            value={
+                                                formData.password
+                                            }
+                                            onChange={
+                                                handleChange
+                                            }
                                             autoComplete="current-password"
                                             required
                                         />

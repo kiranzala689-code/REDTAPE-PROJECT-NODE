@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Navbar.css";
 
-const API_URL = "https://wrogn-clone-react-1.onrender.com";
+const API_URL = "https://redtape-project-node-3.onrender.com";
 
 const categories = [
     "shirt",
@@ -447,7 +447,7 @@ function Navbar({ onCartClick }) {
                     await Promise.all(
                         categories.map((category) =>
                             axios.get(
-                                `${API_URL}/${category}`
+                                `${API_URL}/api/products/${category}`
                             )
                         )
                     );

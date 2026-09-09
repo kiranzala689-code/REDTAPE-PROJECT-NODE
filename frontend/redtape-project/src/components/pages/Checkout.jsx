@@ -3,6 +3,8 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import "./Checkout.css";
 
+const API_URL = "https://redtape-project-node-3.onrender.com";
+
 function Checkout() {
     const navigate = useNavigate();
 
@@ -133,7 +135,7 @@ function Checkout() {
             });
 
             const response = await axios.get(
-                "http://localhost:5000/api/cart",
+                `${API_URL}/api/cart`,
                 getCartConfig()
             );
 
@@ -192,7 +194,7 @@ function Checkout() {
             }
 
             const response = await axios.get(
-                "http://localhost:5000/api/address",
+                `${API_URL}/api/address`,
                 getAuthConfig()
             );
 
@@ -361,7 +363,7 @@ function Checkout() {
 
             const response =
                 await axios.post(
-                    "http://localhost:5000/api/address",
+                    `${API_URL}/api/address`,
                     addressForm,
                     getAuthConfig()
                 );
@@ -473,7 +475,7 @@ function Checkout() {
 
             const response =
                 await axios.post(
-                    "http://localhost:5000/api/orders",
+                    `${API_URL}/api/orders`,
                     orderData,
                     getAuthConfig()
                 );
@@ -586,7 +588,9 @@ function Checkout() {
     return (
         <div className="checkout-page bg-white">
             <div className="container py-4 py-lg-5">
+
                 <div className="d-flex justify-content-between align-items-center border-bottom pb-4 mb-5">
+
                     <Link
                         to="/cart-page"
                         className="text-dark text-decoration-none fw-semibold"
@@ -601,12 +605,17 @@ function Checkout() {
                     <span className="small text-muted">
                         {totalItems} ITEMS
                     </span>
+
                 </div>
 
                 <div className="row g-5">
+
                     <div className="col-lg-7">
+
                         <div className="mb-5">
+
                             <div className="d-flex justify-content-between align-items-center border-bottom pb-3 mb-4">
+
                                 <h4 className="fw-bold mb-0">
                                     01. DELIVERY ADDRESS
                                 </h4>
@@ -622,10 +631,12 @@ function Checkout() {
                                 >
                                     + ADD ADDRESS
                                 </button>
+
                             </div>
 
                             {!getUserId() ? (
                                 <div className="border p-4 text-center">
+
                                     <p className="text-muted mb-3">
                                         Please login to add
                                         delivery address.
@@ -642,9 +653,11 @@ function Checkout() {
                                     >
                                         LOGIN
                                     </button>
+
                                 </div>
                             ) : addresses.length > 0 ? (
                                 <div className="row g-3">
+
                                     {addresses.map(
                                         address => (
                                             <div
@@ -653,6 +666,7 @@ function Checkout() {
                                                     address._id
                                                 }
                                             >
+
                                                 <label
                                                     className={
                                                         selectedAddress ===
@@ -665,8 +679,11 @@ function Checkout() {
                                                             "pointer"
                                                     }}
                                                 >
+
                                                     <div className="d-flex justify-content-between mb-3">
+
                                                         <div className="d-flex gap-2">
+
                                                             <input
                                                                 type="radio"
                                                                 name="address"
@@ -686,6 +703,7 @@ function Checkout() {
                                                                     address.name
                                                                 }
                                                             </strong>
+
                                                         </div>
 
                                                         <span className="badge bg-dark rounded-0">
@@ -694,6 +712,7 @@ function Checkout() {
                                                                 "HOME"
                                                             }
                                                         </span>
+
                                                     </div>
 
                                                     <p className="small mb-2">
@@ -722,13 +741,17 @@ function Checkout() {
                                                             address.phone
                                                         }
                                                     </p>
+
                                                 </label>
+
                                             </div>
                                         )
                                     )}
+
                                 </div>
                             ) : (
                                 <div className="border p-4 text-center">
+
                                     <p className="text-muted">
                                         No saved address found.
                                     </p>
@@ -744,6 +767,7 @@ function Checkout() {
                                     >
                                         ADD NEW ADDRESS
                                     </button>
+
                                 </div>
                             )}
 
@@ -755,12 +779,15 @@ function Checkout() {
                                             saveAddress
                                         }
                                     >
+
                                         <h5 className="fw-bold mb-4">
                                             ADD NEW ADDRESS
                                         </h5>
 
                                         <div className="row g-3">
+
                                             <div className="col-md-6">
+
                                                 <label className="form-label">
                                                     Full Name
                                                 </label>
@@ -777,9 +804,11 @@ function Checkout() {
                                                     }
                                                     required
                                                 />
+
                                             </div>
 
                                             <div className="col-md-6">
+
                                                 <label className="form-label">
                                                     Phone
                                                 </label>
@@ -798,9 +827,11 @@ function Checkout() {
                                                     pattern="[0-9]{10}"
                                                     required
                                                 />
+
                                             </div>
 
                                             <div className="col-12">
+
                                                 <label className="form-label">
                                                     Address
                                                 </label>
@@ -817,9 +848,11 @@ function Checkout() {
                                                     }
                                                     required
                                                 />
+
                                             </div>
 
                                             <div className="col-md-4">
+
                                                 <label className="form-label">
                                                     City
                                                 </label>
@@ -836,9 +869,11 @@ function Checkout() {
                                                     }
                                                     required
                                                 />
+
                                             </div>
 
                                             <div className="col-md-4">
+
                                                 <label className="form-label">
                                                     State
                                                 </label>
@@ -855,9 +890,11 @@ function Checkout() {
                                                     }
                                                     required
                                                 />
+
                                             </div>
 
                                             <div className="col-md-4">
+
                                                 <label className="form-label">
                                                     Pincode
                                                 </label>
@@ -876,9 +913,11 @@ function Checkout() {
                                                     pattern="[0-9]{6}"
                                                     required
                                                 />
+
                                             </div>
 
                                             <div className="col-md-6">
+
                                                 <label className="form-label">
                                                     Address Type
                                                 </label>
@@ -893,6 +932,7 @@ function Checkout() {
                                                         handleAddressChange
                                                     }
                                                 >
+
                                                     <option value="Home">
                                                         Home
                                                     </option>
@@ -904,10 +944,13 @@ function Checkout() {
                                                     <option value="Other">
                                                         Other
                                                     </option>
+
                                                 </select>
+
                                             </div>
 
                                             <div className="col-12">
+
                                                 <button
                                                     type="submit"
                                                     className="btn btn-dark rounded-0 px-4"
@@ -931,17 +974,24 @@ function Checkout() {
                                                 >
                                                     CANCEL
                                                 </button>
+
                                             </div>
+
                                         </div>
+
                                     </form>
                                 )}
+
                         </div>
 
                         <div>
+
                             <div className="border-bottom pb-3 mb-4">
+
                                 <h4 className="fw-bold">
                                     02. PAYMENT METHOD
                                 </h4>
+
                             </div>
 
                             <label
@@ -955,6 +1005,7 @@ function Checkout() {
                                     cursor: "pointer"
                                 }}
                             >
+
                                 <input
                                     type="radio"
                                     name="payment"
@@ -971,6 +1022,7 @@ function Checkout() {
                                 />
 
                                 <div>
+
                                     <strong>
                                         CASH ON DELIVERY
                                     </strong>
@@ -979,7 +1031,9 @@ function Checkout() {
                                         Pay when your order
                                         is delivered.
                                     </p>
+
                                 </div>
+
                             </label>
 
                             <label
@@ -993,6 +1047,7 @@ function Checkout() {
                                     cursor: "pointer"
                                 }}
                             >
+
                                 <input
                                     type="radio"
                                     name="payment"
@@ -1009,6 +1064,7 @@ function Checkout() {
                                 />
 
                                 <div>
+
                                     <strong>
                                         ONLINE PAYMENT
                                     </strong>
@@ -1019,19 +1075,26 @@ function Checkout() {
                                         or Wallet through
                                         Razorpay.
                                     </p>
+
                                 </div>
+
                             </label>
+
                         </div>
+
                     </div>
 
                     <div className="col-lg-5">
+
                         <div
                             className="border p-4 position-sticky"
                             style={{
                                 top: "20px"
                             }}
                         >
+
                             <div className="d-flex justify-content-between border-bottom pb-3 mb-4">
+
                                 <h4 className="fw-bold mb-0">
                                     ORDER SUMMARY
                                 </h4>
@@ -1039,6 +1102,7 @@ function Checkout() {
                                 <span className="small text-muted">
                                     {totalItems} ITEMS
                                 </span>
+
                             </div>
 
                             {cart.items.map(
@@ -1046,6 +1110,7 @@ function Checkout() {
                                     item,
                                     index
                                 ) => {
+
                                     const product =
                                         item.product ||
                                         {};
@@ -1065,6 +1130,10 @@ function Checkout() {
                                         price *
                                         quantity;
 
+                                    const productId =
+                                        product._id ||
+                                        product.id;
+
                                     return (
                                         <div
                                             className="d-flex gap-3 mb-4"
@@ -1073,8 +1142,9 @@ function Checkout() {
                                                 index
                                             }
                                         >
+
                                             <Link
-                                                to={`/product/${product._id}`}
+                                                to={`/product/${productId}`}
                                                 className="position-relative bg-light flex-shrink-0"
                                                 style={{
                                                     width:
@@ -1083,6 +1153,7 @@ function Checkout() {
                                                         "105px"
                                                 }}
                                             >
+
                                                 {product.images?.[0] ? (
                                                     <img
                                                         src={
@@ -1106,11 +1177,13 @@ function Checkout() {
                                                 <span className="position-absolute top-0 end-0 bg-dark text-white px-2 py-1 small">
                                                     {quantity}
                                                 </span>
+
                                             </Link>
 
                                             <div className="flex-grow-1">
+
                                                 <Link
-                                                    to={`/product/${product._id}`}
+                                                    to={`/product/${productId}`}
                                                     className="text-dark text-decoration-none fw-semibold d-block"
                                                 >
                                                     {
@@ -1141,7 +1214,9 @@ function Checkout() {
                                                         "en-IN"
                                                     )}
                                                 </strong>
+
                                             </div>
+
                                         </div>
                                     );
                                 }
@@ -1150,6 +1225,7 @@ function Checkout() {
                             <hr />
 
                             <div className="d-flex justify-content-between mb-3">
+
                                 <span>
                                     Subtotal
                                 </span>
@@ -1160,9 +1236,11 @@ function Checkout() {
                                         "en-IN"
                                     )}
                                 </strong>
+
                             </div>
 
                             <div className="d-flex justify-content-between mb-3">
+
                                 <span>
                                     Shipping
                                 </span>
@@ -1173,9 +1251,11 @@ function Checkout() {
                                         ? "FREE"
                                         : `₹${shippingCharge}`}
                                 </strong>
+
                             </div>
 
                             <div className="d-flex justify-content-between mb-3">
+
                                 <span>
                                     Discount
                                 </span>
@@ -1183,6 +1263,7 @@ function Checkout() {
                                 <strong>
                                     ₹0
                                 </strong>
+
                             </div>
 
                             {subtotal < 999 &&
@@ -1203,6 +1284,7 @@ function Checkout() {
                             <hr />
 
                             <div className="d-flex justify-content-between align-items-center mb-4">
+
                                 <strong className="fs-5">
                                     TOTAL
                                 </strong>
@@ -1213,6 +1295,7 @@ function Checkout() {
                                         "en-IN"
                                     )}
                                 </strong>
+
                             </div>
 
                             <button
@@ -1236,12 +1319,15 @@ function Checkout() {
                             </button>
 
                             <div className="border-top mt-4 pt-4">
+
                                 <div className="d-flex gap-3">
+
                                     <span>
                                         🔒
                                     </span>
 
                                     <div>
+
                                         <strong className="small">
                                             SECURE CHECKOUT
                                         </strong>
@@ -1252,8 +1338,11 @@ function Checkout() {
                                             information is
                                             protected.
                                         </p>
+
                                     </div>
+
                                 </div>
+
                             </div>
 
                             <Link
@@ -1262,9 +1351,13 @@ function Checkout() {
                             >
                                 ← BACK TO CART
                             </Link>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
         </div>
     );

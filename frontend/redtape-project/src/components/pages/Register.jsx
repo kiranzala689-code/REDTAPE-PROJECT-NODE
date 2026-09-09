@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Register.css";
 
+const API_URL = "https://redtape-project-node-3.onrender.com";
+
 function Register() {
   const navigate = useNavigate();
 
@@ -37,7 +39,7 @@ function Register() {
       setLoading(true);
 
       const response = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        `${API_URL}/api/auth/register`,
         {
           name: formData.name,
           email: formData.email,

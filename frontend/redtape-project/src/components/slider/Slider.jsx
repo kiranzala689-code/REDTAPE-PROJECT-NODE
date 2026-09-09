@@ -25,15 +25,12 @@ function Slider() {
   };
 
   const prevSlide = () => {
-    setCurrent(
-      (prev) => (prev - 1 + images.length) % images.length
-    );
+    setCurrent((prev) => (prev - 1 + images.length) % images.length);
   };
 
   return (
     <div className="container-fluid p-0">
       <div className="slider">
-
         <img
           src={images[current]}
           alt={`Banner ${current + 1}`}
@@ -63,17 +60,12 @@ function Slider() {
             <button
               type="button"
               key={index}
-              className={
-                current === index
-                  ? "dot active"
-                  : "dot"
-              }
+              className={current === index ? "dot active" : "dot"}
               onClick={() => setCurrent(index)}
               aria-label={`Go to slide ${index + 1}`}
-            ></button>
+            />
           ))}
         </div>
-
       </div>
     </div>
   );

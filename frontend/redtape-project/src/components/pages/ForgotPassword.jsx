@@ -1,103 +1,113 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
+const API_URL = "https://redtape-project-node-3.onrender.com";
 
 function ForgotPassword() {
-  const [email, setEmail] = useState("");
-  const [loading, setLoading] = useState(false);
+    const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+    const handleSubmit = async (e) => {
+        e.preventDefault();
 
-    if (!email) {
-      alert("Please enter your email");
-      return;
-    }
+        if (!email) {
+            alert("Please enter your email");
+            return;
+        }
 
-    try {
-      setLoading(true);
+        try {
+            setLoading(true);
 
-      // Yaha baad me tumhari forgot-password API lagegi
+            const response = await axios.post(
+                `${API_URL}/api/auth/forgot-password`,
+                { email }
+            );
 
-      console.log("EMAIL:", email);
+            alert(
+                response.data?.message ||
+                "Password reset link request sent"
+            );
+        } catch (error) {
+            console.log(
+                "FORGOT PASSWORD ERROR:",
+                error.response?.data ||
+                error.message
+            );
 
-      alert("Password reset link request sent");
+            alert(
+                error.response?.data?.message ||
+                "Something went wrong"
+            );
+        } finally {
+            setLoading(false);
+        }
+    };
 
-    } catch (error) {
-      console.log("FORGOT PASSWORD ERROR:", error);
+    return (
+        <div className="forgot-page">
 
-      alert(
-        error.response?.data?.message ||
-        "Something went wrong"
-      );
-    } finally {
-      setLoading(false);
-    }
-  };
+            <div className="container">
 
-  return (
-    <div className="forgot-page">
+                <div className="forgot-container">
 
-      <div className="container">
+                    <h1 className="forgot-title">
+                        Forgot password?
+                    </h1>
 
-        <div className="forgot-container">
+                    <p className="forgot-text">
+                        Enter your email address and we'll send you
+                        instructions to reset your password.
+                    </p>
 
-          <h1 className="forgot-title">
-            Forgot password?
-          </h1>
+                    <form onSubmit={handleSubmit}>
 
-          <p className="forgot-text">
-            Enter your email address and we'll send you
-            instructions to reset your password.
-          </p>
+                        <div className="mb-4">
 
-          <form onSubmit={handleSubmit}>
+                            <label className="form-label">
+                                Email
+                            </label>
 
-            <div className="mb-4">
+                            <input
+                                type="email"
+                                className="form-control forgot-input"
+                                placeholder="Email"
+                                value={email}
+                                onChange={(e) =>
+                                    setEmail(e.target.value)
+                                }
+                                required
+                            />
 
-              <label className="form-label">
-                Email
-              </label>
+                        </div>
 
-              <input
-                type="email"
-                className="form-control forgot-input"
-                placeholder="Email"
-                value={email}
-                onChange={(e) =>
-                  setEmail(e.target.value)
-                }
-              />
+                        <button
+                            type="submit"
+                            className="btn btn-dark w-100 forgot-btn"
+                            disabled={loading}
+                        >
+                            {loading
+                                ? "Sending..."
+                                : "SEND RESET LINK"}
+                        </button>
+
+                    </form>
+
+                    <div className="back-login">
+
+                        <Link to="/login">
+                            <i className="bi bi-arrow-left me-2"></i>
+                            Back to Login
+                        </Link>
+
+                    </div>
+
+                </div>
 
             </div>
 
-            <button
-              type="submit"
-              className="btn btn-dark w-100 forgot-btn"
-              disabled={loading}
-            >
-              {loading
-                ? "Sending..."
-                : "SEND RESET LINK"}
-            </button>
-
-          </form>
-
-          <div className="back-login">
-
-            <Link to="/login">
-              <i className="bi bi-arrow-left me-2"></i>
-              Back to Login
-            </Link>
-
-          </div>
-
         </div>
-
-      </div>
-
-    </div>
-  );
+    );
 }
 
 export default ForgotPassword;
