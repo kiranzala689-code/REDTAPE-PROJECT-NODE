@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Navbar.css";
 
-const API_URL = "https://redtape-project-node-3.onrender.com";
+const API_URL = "https://redtape-project-node-4.onrender.com";
 
 const categories = [
     "shirt",
@@ -60,10 +60,7 @@ function getProductImage(product) {
         return product.image1;
     }
 
-    if (
-        Array.isArray(product?.images) &&
-        product.images.length > 0
-    ) {
+    if (Array.isArray(product?.images) && product.images.length > 0) {
         return product.images[0];
     }
 
@@ -110,8 +107,7 @@ function SearchBox({
                 return false;
             }
 
-            const name =
-                getProductName(product).toLowerCase();
+            const name = getProductName(product).toLowerCase();
 
             const category = String(
                 product?.category || ""
@@ -130,9 +126,7 @@ function SearchBox({
             ).toLowerCase();
 
             const categoryName = String(
-                categoryNames[
-                    product?.routeCategory
-                ] || ""
+                categoryNames[product?.routeCategory] || ""
             ).toLowerCase();
 
             return (
@@ -145,17 +139,11 @@ function SearchBox({
             );
         })
         .sort((a, b) => {
-            const aName =
-                getProductName(a).toLowerCase();
+            const aName = getProductName(a).toLowerCase();
+            const bName = getProductName(b).toLowerCase();
 
-            const bName =
-                getProductName(b).toLowerCase();
-
-            const aStart =
-                aName.startsWith(searchText);
-
-            const bStart =
-                bName.startsWith(searchText);
+            const aStart = aName.startsWith(searchText);
+            const bStart = bName.startsWith(searchText);
 
             if (aStart && !bStart) {
                 return -1;
@@ -176,8 +164,7 @@ function SearchBox({
             }
 
             const name =
-                categoryNames[category]?.toLowerCase() ||
-                "";
+                categoryNames[category]?.toLowerCase() || "";
 
             return (
                 name.includes(searchText) ||
@@ -243,12 +230,10 @@ function SearchBox({
 
             {showSuggestions && search.trim() && (
                 <div className="search-suggestions">
-
                     {filteredProducts.length > 0 && (
                         <>
                             <div className="suggestion-heading">
                                 <span>Products</span>
-
                                 <small>
                                     {filteredProducts.length} found
                                 </small>
@@ -273,43 +258,32 @@ function SearchBox({
                                                 return;
                                             }
 
-                                            handleProductClick(
-                                                product
-                                            );
+                                            handleProductClick(product);
                                         }}
                                     >
                                         <div className="suggestion-image">
                                             <img
-                                                src={getProductImage(
-                                                    product
-                                                )}
-                                                alt={getProductName(
-                                                    product
-                                                )}
+                                                src={getProductImage(product)}
+                                                alt={getProductName(product)}
                                             />
                                         </div>
 
                                         <div className="suggestion-details">
                                             <h6>
-                                                {getProductName(
-                                                    product
-                                                )}
+                                                {getProductName(product)}
                                             </h6>
 
                                             <span className="suggestion-category">
                                                 {categoryNames[
                                                     product.routeCategory
-                                                ] ||
-                                                    product.category}
+                                                ] || product.category}
                                             </span>
 
                                             <div className="suggestion-price">
                                                 ₹
                                                 {getProductPrice(
                                                     product
-                                                ).toLocaleString(
-                                                    "en-IN"
-                                                )}
+                                                ).toLocaleString("en-IN")}
                                             </div>
                                         </div>
 
@@ -333,9 +307,7 @@ function SearchBox({
                                     onMouseDown={(e) => {
                                         e.preventDefault();
 
-                                        handleCategoryClick(
-                                            category
-                                        );
+                                        handleCategoryClick(category);
                                     }}
                                 >
                                     <div className="category-icon">
@@ -391,11 +363,8 @@ function Navbar({ onCartClick }) {
     const [menuOpen, setMenuOpen] = useState(false);
     const [search, setSearch] = useState("");
     const [products, setProducts] = useState([]);
-    const [showSuggestions, setShowSuggestions] =
-        useState(false);
-
-    const [isLoggedIn, setIsLoggedIn] =
-        useState(false);
+    const [showSuggestions, setShowSuggestions] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
     const desktopSearchRef = useRef(null);
     const mobileSearchRef = useRef(null);
@@ -404,107 +373,70 @@ function Navbar({ onCartClick }) {
 
     useEffect(() => {
         const checkLogin = () => {
-            const token =
-                localStorage.getItem("token");
+            const token = localStorage.getItem("token");
+            const user = localStorage.getItem("user");
 
-            const user =
-                localStorage.getItem("user");
-
-            setIsLoggedIn(
-                Boolean(token && user)
-            );
+            setIsLoggedIn(Boolean(token && user));
         };
 
         checkLogin();
 
-        window.addEventListener(
-            "authChanged",
-            checkLogin
-        );
-
-        window.addEventListener(
-            "storage",
-            checkLogin
-        );
+        window.addEventListener("authChanged", checkLogin);
+        window.addEventListener("storage", checkLogin);
 
         return () => {
-            window.removeEventListener(
-                "authChanged",
-                checkLogin
-            );
-
-            window.removeEventListener(
-                "storage",
-                checkLogin
-            );
+            window.removeEventListener("authChanged", checkLogin);
+            window.removeEventListener("storage", checkLogin);
         };
     }, []);
 
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const responses =
-                    await Promise.all(
-                        categories.map((category) =>
-                            axios.get(
-                                `${API_URL}/api/products/${category}`
-                            )
+                const responses = await Promise.all(
+                    categories.map((category) =>
+                        axios.get(
+                            `${API_URL}/api/products/${category}`
                         )
-                    );
+                    )
+                );
 
                 const allProducts = [];
 
-                responses.forEach(
-                    (response, index) => {
-                        const routeCategory =
-                            categories[index];
+                responses.forEach((response, index) => {
+                    const routeCategory = categories[index];
 
-                        let data =
-                            response.data;
+                    let data = response.data;
 
-                        if (
-                            data?.products &&
-                            Array.isArray(
-                                data.products
-                            )
-                        ) {
-                            data =
-                                data.products;
-                        }
-
-                        if (
-                            data?.data &&
-                            Array.isArray(
-                                data.data
-                            )
-                        ) {
-                            data =
-                                data.data;
-                        }
-
-                        if (
-                            Array.isArray(data)
-                        ) {
-                            data.forEach(
-                                (item) => {
-                                    allProducts.push({
-                                        ...item,
-                                        routeCategory
-                                    });
-                                }
-                            );
-                        }
+                    if (
+                        data?.products &&
+                        Array.isArray(data.products)
+                    ) {
+                        data = data.products;
                     }
-                );
 
-                setProducts(
-                    allProducts
-                );
+                    if (
+                        data?.data &&
+                        Array.isArray(data.data)
+                    ) {
+                        data = data.data;
+                    }
+
+                    if (Array.isArray(data)) {
+                        data.forEach((item) => {
+                            allProducts.push({
+                                ...item,
+                                routeCategory
+                            });
+                        });
+                    }
+                });
+
+                setProducts(allProducts);
             } catch (error) {
                 console.log(
                     "SEARCH PRODUCTS ERROR:",
-                    error.response?.data ||
-                    error.message
+                    error.response?.data || error.message
                 );
             }
         };
@@ -513,29 +445,17 @@ function Navbar({ onCartClick }) {
     }, []);
 
     useEffect(() => {
-        const handleClickOutside = (
-            event
-        ) => {
-            const desktopSearch =
-                desktopSearchRef.current;
-
-            const mobileSearch =
-                mobileSearchRef.current;
+        const handleClickOutside = (event) => {
+            const desktopSearch = desktopSearchRef.current;
+            const mobileSearch = mobileSearchRef.current;
 
             const clickedDesktop =
-                desktopSearch?.contains(
-                    event.target
-                );
+                desktopSearch?.contains(event.target);
 
             const clickedMobile =
-                mobileSearch?.contains(
-                    event.target
-                );
+                mobileSearch?.contains(event.target);
 
-            if (
-                !clickedDesktop &&
-                !clickedMobile
-            ) {
+            if (!clickedDesktop && !clickedMobile) {
                 setShowSuggestions(false);
             }
         };
@@ -553,14 +473,9 @@ function Navbar({ onCartClick }) {
         };
     }, []);
 
-    const handleProductClick = (
-        product
-    ) => {
-        const productId =
-            getDatabaseId(product);
-
-        const productCategory =
-            product.routeCategory;
+    const handleProductClick = (product) => {
+        const productId = getDatabaseId(product);
+        const productCategory = product.routeCategory;
 
         if (!productId) {
             console.log(
@@ -582,14 +497,10 @@ function Navbar({ onCartClick }) {
         setShowSuggestions(false);
         setMenuOpen(false);
 
-        navigate(
-            `/${productCategory}/${productId}`
-        );
+        navigate(`/${productCategory}/${productId}`);
     };
 
-    const handleCategoryClick = (
-        category
-    ) => {
+    const handleCategoryClick = (category) => {
         setSearch("");
         setShowSuggestions(false);
         setMenuOpen(false);
@@ -600,8 +511,7 @@ function Navbar({ onCartClick }) {
     const handleSearchSubmit = (e) => {
         e.preventDefault();
 
-        const value =
-            search.trim();
+        const value = search.trim();
 
         if (!value) {
             return;
@@ -610,20 +520,15 @@ function Navbar({ onCartClick }) {
         setShowSuggestions(false);
 
         navigate(
-            `/search?query=${encodeURIComponent(
-                value
-            )}`
+            `/search?query=${encodeURIComponent(value)}`
         );
     };
 
     const handleAccountClick = () => {
         setMenuOpen(false);
 
-        const token =
-            localStorage.getItem("token");
-
-        const user =
-            localStorage.getItem("user");
+        const token = localStorage.getItem("token");
+        const user = localStorage.getItem("user");
 
         if (token && user) {
             navigate("/account");
@@ -657,10 +562,7 @@ function Navbar({ onCartClick }) {
                             className="menu-btn"
                             type="button"
                             onClick={() =>
-                                setMenuOpen(
-                                    (prev) =>
-                                        !prev
-                                )
+                                setMenuOpen((prev) => !prev)
                             }
                         >
                             <i
@@ -675,11 +577,7 @@ function Navbar({ onCartClick }) {
                         <Link
                             to="/"
                             className="logo"
-                            onClick={() =>
-                                setMenuOpen(
-                                    false
-                                )
-                            }
+                            onClick={() => setMenuOpen(false)}
                         >
                             <img
                                 src="https://redtape.com/cdn/shop/files/new-logo-footer_1.png?v=1707376250&width=145"
@@ -719,9 +617,7 @@ function Navbar({ onCartClick }) {
                             <button
                                 type="button"
                                 className="icon border-0 bg-transparent"
-                                onClick={
-                                    handleAccountClick
-                                }
+                                onClick={handleAccountClick}
                                 title={
                                     isLoggedIn
                                         ? "My Account"
@@ -738,9 +634,7 @@ function Navbar({ onCartClick }) {
                                     if (onCartClick) {
                                         onCartClick();
                                     } else {
-                                        navigate(
-                                            "/cart"
-                                        );
+                                        navigate("/cart");
                                     }
                                 }}
                             >
@@ -752,7 +646,6 @@ function Navbar({ onCartClick }) {
                                 className="icon wishlist"
                             >
                                 <i className="bi bi-heart"></i>
-
                                 <span>0</span>
                             </Link>
 
@@ -771,9 +664,7 @@ function Navbar({ onCartClick }) {
                             showSuggestions={
                                 showSuggestions
                             }
-                            searchRef={
-                                mobileSearchRef
-                            }
+                            searchRef={mobileSearchRef}
                             handleSearchSubmit={
                                 handleSearchSubmit
                             }
@@ -797,11 +688,9 @@ function Navbar({ onCartClick }) {
 
                             <li>
                                 <Link
-                                    to="/shirt"
+                                    to="/category/shirt"
                                     onClick={() =>
-                                        setMenuOpen(
-                                            false
-                                        )
+                                        setMenuOpen(false)
                                     }
                                 >
                                     Shirts
@@ -811,11 +700,9 @@ function Navbar({ onCartClick }) {
 
                             <li>
                                 <Link
-                                    to="/footwear"
+                                    to="/category/footwear"
                                     onClick={() =>
-                                        setMenuOpen(
-                                            false
-                                        )
+                                        setMenuOpen(false)
                                     }
                                 >
                                     Footwear
@@ -825,11 +712,9 @@ function Navbar({ onCartClick }) {
 
                             <li>
                                 <Link
-                                    to="/pent"
+                                    to="/category/pent"
                                     onClick={() =>
-                                        setMenuOpen(
-                                            false
-                                        )
+                                        setMenuOpen(false)
                                     }
                                 >
                                     Pants
@@ -839,11 +724,9 @@ function Navbar({ onCartClick }) {
 
                             <li>
                                 <Link
-                                    to="/new-arrival"
+                                    to="/category/new-arrival"
                                     onClick={() =>
-                                        setMenuOpen(
-                                            false
-                                        )
+                                        setMenuOpen(false)
                                     }
                                 >
                                     New Arrival

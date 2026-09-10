@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import "./OrderDetails.css";
 
-const API_URL = "https://redtape-project-node-3.onrender.com";
+const API_URL = "https://redtape-project-node-4.onrender.com";
 
 function OrderDetails() {
     const { id } = useParams();

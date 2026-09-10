@@ -1,5 +1,4 @@
 const dotenv = require("dotenv");
-
 dotenv.config();
 
 const express = require("express");
@@ -16,14 +15,15 @@ const payment_router = require("./router/paymentRoutes");
 const review_router = require("./router/reviewRoutes");
 const otp_router = require("./router/OtpRouter");
 
-connectDB();
-
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
 console.log("JWT SECRET LOADED:", !!process.env.JWT_SECRET);
+console.log("MONGO URI LOADED:", !!process.env.MONGO_URI);
+
+connectDB();
 
 app.get("/", (req, res) => {
     res.status(200).json({

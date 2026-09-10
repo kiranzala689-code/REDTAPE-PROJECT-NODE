@@ -3,7 +3,7 @@ import Slider from "../slider/Slider";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const API_URL = "https://redtape-project-node-3.onrender.com";
+const API_URL = "https://redtape-project-node-4.onrender.com";
 
 function Home() {
     const [shoes, setShoes] = useState([]);

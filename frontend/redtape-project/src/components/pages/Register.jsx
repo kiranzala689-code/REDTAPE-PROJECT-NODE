@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "./Register.css";
 
-const API_URL = "https://redtape-project-node-3.onrender.com";
+const API_URL = "https://redtape-project-node-4.onrender.com";
 
 function Register() {
   const navigate = useNavigate();
