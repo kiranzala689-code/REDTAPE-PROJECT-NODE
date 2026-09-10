@@ -1144,7 +1144,7 @@ function Checkout() {
                                         >
 
                                             <Link
-                                                to={`/product/${productId}`}
+                                                to={`/products/${productId}`}
                                                 className="position-relative bg-light flex-shrink-0"
                                                 style={{
                                                     width:
@@ -1183,7 +1183,7 @@ function Checkout() {
                                             <div className="flex-grow-1">
 
                                                 <Link
-                                                    to={`/product/${productId}`}
+                                                    to={`/products/${productId}`}
                                                     className="text-dark text-decoration-none fw-semibold d-block"
                                                 >
                                                     {
